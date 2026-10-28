@@ -1,0 +1,2 @@
+# Parallel features each add their own <script> line to index.html: keep both sides instead of conflicting.
+index.html merge=union
