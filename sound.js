@@ -1,9 +1,9 @@
 /* global CoinDash, COIN_DASH */
-// Sad trombone on a loss (player hit, time out, or bot wins). M mutes; saved in localStorage.
+// Sad trombone on a loss (player hit, time out, or bot wins). Muted by M (see sounds.js).
 // window.coinDashSound.plays counts played sounds so tests can check without real audio.
 const S = COIN_DASH.sound;
-const sound = window.coinDashSound = { plays: 0, muted: false };
-try { sound.muted = localStorage.getItem(S.storageKey) === '1'; } catch (e) { /* storage blocked */ }
+// M and the saved setting belong to sounds.js (coin beeps); the sad sound follows its mute state.
+const sound = window.coinDashSound = { plays: 0, get muted() { return !!(window.coinDashSounds && window.coinDashSounds.muted); } };
 let ctx = null;
 const unlock = () => {
   try {
@@ -11,13 +11,7 @@ const unlock = () => {
     if (ctx.state === 'suspended') ctx.resume();
   } catch (e) { /* no audio */ }
 };
-document.addEventListener('keydown', e => {
-  unlock();
-  if (e.key.toUpperCase() === S.key) {
-    sound.muted = !sound.muted;
-    try { localStorage.setItem(S.storageKey, sound.muted ? '1' : '0'); } catch (err) { /* ignore */ }
-  }
-});
+document.addEventListener('keydown', unlock);
 document.addEventListener('pointerdown', unlock);
 
 function sadTrombone() {
