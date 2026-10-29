@@ -64,6 +64,7 @@ COIN_DASH.shortcuts = [
   { keys: 'B', action: 'Bot rival' },
   { keys: 'H', action: 'Half-points mode (coming)' },
   { keys: 'N', action: 'Auto-continue (coming)' },
+  { keys: 'M', action: 'Mute sound (coming)' },
   { keys: '? / /', action: 'Show / hide this help' },
   { keys: 'Esc', action: 'Close help' }
 ];
