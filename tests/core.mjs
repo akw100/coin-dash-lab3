@@ -31,6 +31,7 @@ export async function coin(t) {
 
 export async function drone(t) {
   await t.js(park);
+  await t.js('__scene().lives = 1'); // lives.js: the last life is the one that ends the round
   await t.js(touch('s.drones.getChildren()[0]'));
   await t.sleep(200);
   t.assert(await t.js('__scene().finished') === true, 'touching a drone did not end the round');
