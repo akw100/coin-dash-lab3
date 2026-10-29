@@ -6,8 +6,10 @@ window.COIN_DASH = {
   playerSpeed: 240,
   droneSpeed: 105,
   droneCount: 3,
+  highScoreKey: 'coinDash.best',
   teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
   doublePoints: { multiplier: 2, durationMs: 8000, spawnEveryMs: 10000, lifetimeMs: 7000, color: 0xb388ff },
+  magnet: { radius: 160, pullSpeed: 220, durationMs: 8000, spawnEveryMs: 12000, lifetimeMs: 7000, color: 0xe63946 },
   colors: { background: 0x101c31, player: 0x71e8ce, coin: 0xffd166, drone: 0xff657a }
 };
 // Sparkly coins (sparkle.js): twinkle = stars around the coin, burst = stars on pickup.
@@ -44,3 +46,8 @@ COIN_DASH.ui = {
   dark:  { panel: 0x0a1120, panelAlpha: 0.78, stroke: 0x34445e, text: '#e5edf7', label: '#8fa3bf', outline: 0x0a1120, vignette: 0.55 },
   light: { panel: 0xffffff, panelAlpha: 0.85, stroke: 0xc9cfd8, text: '#1b2433', label: '#5b6778', outline: 0x1b2433, vignette: 0.12 }
 };
+
+// Shield pickup (shield.js): grab it to absorb the next drone hit.
+window.COIN_DASH.shield = { spawnEveryMs: 12000, lifetimeMs: 7000, graceMs: 700, color: 0x4dd8ff, glow: 0xbff4ff };
+// Clock pickup (clock.js): adds addSeconds to the round when grabbed.
+window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
