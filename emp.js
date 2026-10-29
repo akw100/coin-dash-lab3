@@ -16,8 +16,13 @@ CoinDash.prototype.create = function () {
     const drones = this.drones.getChildren();
     const saved = drones.map(d => ({ vx: d.body.velocity.x, vy: d.body.velocity.y, fill: d.fillColor }));
     drones.forEach(d => { d.body.setVelocity(0, 0); d.setFillStyle(k.frozenColor); });
+    // ponytail: re-assert each frame so self-steering drones (chaser.js) stay frozen too
+    const hold = () => { if (this.empFrozen) drones.forEach(d => { d.body.setVelocity(0, 0); d.setFillStyle(k.frozenColor); }); };
+    this.events.on('postupdate', hold);
+    this.events.once('shutdown', () => this.events.off('postupdate', hold));
     this.time.delayedCall(k.freezeMs, () => {
       this.empFrozen = false;
+      this.events.off('postupdate', hold);
       drones.forEach((d, i) => { if (d.active) { d.body.setVelocity(saved[i].vx, saved[i].vy); d.setFillStyle(saved[i].fill); } });
     });
   });
