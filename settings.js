@@ -160,3 +160,8 @@ COIN_DASH.freshRestart = { enabled: true };
 // Poison coin (poisoncoin.js): a purple coin appears now and then; touching it costs penalty points.
 COIN_DASH.poisonCoin = { penalty: 3, spawnEveryMs: 8000, lifetimeMs: 5000, radius: 10, minDistance: 100,
   color: 0x9b30ff, ring: 0x2a0040, textColor: '#c77dff' };
+// Board-game makeover (boardgame.js): printed board, playing-card HUD, token coin, box-lid title. Overrides COIN_DASH.ui colours.
+COIN_DASH.board = { ink: 0x1a1446, square: 40, track: 12, font: '"Arial Rounded MT Bold", ui-rounded, "SF Pro Rounded", Nunito, "Trebuchet MS", system-ui, sans-serif',
+  dark: { base: '#2b1b66', check: '#34217a', emblem: 'rgba(255,255,255,0.07)' }, light: { base: '#bfe6ff', check: '#aedcff', emblem: 'rgba(26,20,70,0.08)' },
+  trackColors: ['#ff4b3e', '#ffc928', '#1fb86b', '#39b5ff'], gold: 0xffc928, goldRim: 0xd98e00, burst: 0xff4b3e, pips: { coins: 0xff4b3e, time: 0x39b5ff },
+  confetti: 40 };
