@@ -51,7 +51,7 @@ COIN_DASH.ui = {
 };
 
 // Shield pickup (shield.js): grab it to absorb the next drone hit.
-window.COIN_DASH.shield = { spawnEveryMs: 12000, lifetimeMs: 7000, graceMs: 700, color: 0x4dd8ff, glow: 0xbff4ff };
+window.COIN_DASH.shield = { spawnEveryMs: 10000, lifetimeMs: 7000, graceMs: 700, color: 0x2ecc71, glow: 0x9dffb8 };
 // Clock pickup (clock.js): adds addSeconds to the round when grabbed.
 window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
 
