@@ -51,3 +51,6 @@ COIN_DASH.ui = {
 window.COIN_DASH.shield = { spawnEveryMs: 12000, lifetimeMs: 7000, graceMs: 700, color: 0x4dd8ff, glow: 0xbff4ff };
 // Clock pickup (clock.js): adds addSeconds to the round when grabbed.
 window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
+
+// Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
+COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
