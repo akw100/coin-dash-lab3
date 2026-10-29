@@ -15,6 +15,15 @@ export async function pickup(t) {
   t.assert(await t.js(`__scene().children.list.filter(o => o.text === '+1').length`) === 0, 'the popup was not removed');
 }
 
+export async function popupDouble(t) {
+  await t.js(park);
+  await t.js('__scene().activateDouble()');
+  await t.js(touch('s.coin'));
+  await t.sleep(150);
+  const text = await t.js(`__scene().children.list.filter(o => o.type === 'Text' && /^\\+\\d+$/.test(o.text)).map(o => o.text)`);
+  t.assert(text.length === 1 && text[0] === '+2', `expected a +2 popup while doubled, got ${JSON.stringify(text)}`);
+}
+
 export async function drones(t) {
   await t.js(park);
   const a = await t.js('__scene().drones.getChildren()[0].angle');
