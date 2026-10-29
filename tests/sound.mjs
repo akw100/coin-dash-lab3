@@ -3,7 +3,7 @@
 const park = '__scene().drones.getChildren().forEach((d, i) => d.body.reset(30 + i * 30, 480))';
 const setup = async t => {
   await t.js(park);
-  await t.js('localStorage.removeItem("coinDash.muted"); coinDashSound.muted = false; coinDashSound.plays = 0');
+  await t.js('localStorage.removeItem("coinDashMuted"); coinDashSounds.muted = false; coinDashSound.plays = 0');
 };
 const plays = t => t.js('coinDashSound.plays');
 const vsBot = async (t, you, bot) => {
@@ -35,4 +35,5 @@ export async function mute(t) {
   t.assert(await t.js('coinDashSound.muted') === true, 'M did not mute');
   await t.js('__scene().finish("test")');
   t.assert(await plays(t) === 0, 'sad sound played while muted');
+  await t.press('KeyM'); // M is shared with sounds.js; leave it unmuted
 }

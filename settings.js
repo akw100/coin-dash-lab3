@@ -56,7 +56,7 @@ window.COIN_DASH.shield = { spawnEveryMs: 10000, lifetimeMs: 7000, graceMs: 700,
 window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
 
 // Sad sound on loss (sound.js): trombone "wah-wah-wah-waaah", M mutes. notes = [Hz, seconds]; the last one gets vibrato.
-window.COIN_DASH.sound = { key: 'M', storageKey: 'coinDash.muted', volume: 0.25,
+window.COIN_DASH.sound = { volume: 0.25,
   notes: [[233, 0.35], [220, 0.35], [208, 0.35], [196, 1.1]], vibratoHz: 6, vibratoCents: 35 };
 
 // Half-points mode (halfmode.js): H toggles; a hit halves the score instead of ending the round.
@@ -84,6 +84,9 @@ COIN_DASH.speedBoost = { multiplier: 1.6, durationMs: 4000, spawnEveryMs: 8000, 
 COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
 window.COIN_DASH.twoPlayer = { key: 'TWO', color: 0xff9f43 };
+
+// Walls (walls.js): static blocks that stop the player and bounce drones. x, y = centre.
+COIN_DASH.walls = { color: 0x8a94a6, blocks: [{ x: 200, y: 320, w: 80, h: 24 }, { x: 640, y: 200, w: 24, h: 100 }, { x: 400, y: 420, w: 100, h: 24 }] };
 
 // Logo (logo.js): gold coin with speed lines, drawn above the start title. Same shapes as logo.svg.
 window.COIN_DASH.logo = { y: 118, radius: 44, gold: 0xffc933, rim: 0xb8860b, edge: 0x3b2a05, shine: 0xfff3b0, lines: [-22, 0, 22],
