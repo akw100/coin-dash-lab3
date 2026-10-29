@@ -11,10 +11,12 @@ CoinDash.prototype.create = function () {
   this.lastCoinAt = -Infinity;
   this.comboReady = true;
   const label = this.add.text(COIN_DASH.width - 18, 28, '', { font: '18px monospace', color: k.color }).setOrigin(1, 0);
-  this.events.on('postupdate', () => {
+  const tick = () => {
     if (this.time.now - this.lastCoinAt > k.windowMs) this.combo = 0;
     label.setText(!this.finished && this.combo > 0 ? `Combo x${this.combo}` : '');
-  });
+  };
+  this.events.on('postupdate', tick); // the scene's emitter outlives R, so unhook the destroyed label
+  this.events.once('shutdown', () => this.events.off('postupdate', tick));
 };
 CoinDash.prototype.placeCoin = function () {
   if (this.comboReady) {
