@@ -71,10 +71,15 @@ COIN_DASH.combo = { windowMs: 2000, max: 3, color: '#ffd166' };
 
 // Bonus coin (bonuscoin.js): big pulsing orange coin, worth `points`, gone after lifetimeMs.
 window.COIN_DASH.bonusCoin = { points: 5, spawnEveryMs: 15000, lifetimeMs: 5000, radius: 14, color: 0xff8c1a };
+// Lives (lives.js): drone hits cost a life; respawn at center, immune and blinking for invulnMs.
+window.COIN_DASH.lives = { count: 3, invulnMs: 1500, blinkMs: 100, color: '#ff657a' };
 // Touch controls (touch.js): the player stops once this close to the held pointer.
 COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
 window.COIN_DASH.twoPlayer = { key: 'TWO', color: 0xff9f43 };
+
+// Walls (walls.js): static blocks that stop the player and bounce drones. x, y = centre.
+COIN_DASH.walls = { color: 0x8a94a6, blocks: [{ x: 200, y: 320, w: 80, h: 24 }, { x: 640, y: 200, w: 24, h: 100 }, { x: 400, y: 420, w: 100, h: 24 }] };
 
 // Logo (logo.js): gold coin with speed lines, drawn above the start title. Same shapes as logo.svg.
 window.COIN_DASH.logo = { y: 118, radius: 44, gold: 0xffc933, rim: 0xb8860b, edge: 0x3b2a05, shine: 0xfff3b0, lines: [-22, 0, 22],

@@ -4,6 +4,7 @@ const touch = what => `{ const s = __scene(), o = ${what}; o.setPosition(s.playe
 
 export async function shake(t) {
   await t.js(park);
+  await t.js('__scene().lives = 1'); // lives.js: the last life is the one that ends the round
   await t.js(touch('s.drones.getChildren()[0]'));
   await t.sleep(80);
   t.assert(await t.js('__scene().finished') === true, 'the drone hit did not end the round');
