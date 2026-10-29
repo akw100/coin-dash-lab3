@@ -111,3 +111,5 @@ COIN_DASH.countdown = { seconds: 3, goMs: 500, color: '#ffd84d', force: false };
 // Difficulty (difficulty.js): keys 1/2/3 pick a preset and restart the round.
 COIN_DASH.difficulty = { storageKey: 'coinDashDifficulty', default: 'Normal',
   presets: { Easy: { key: '1', droneCount: 2, droneSpeed: 70 }, Normal: { key: '2', droneCount: 3, droneSpeed: 105 }, Hard: { key: '3', droneCount: 5, droneSpeed: 150 } } };
+// Additions panel (features/additions.js): which features are switched off, remembered under storageKey.
+COIN_DASH.additions = { storageKey: 'coinDashAdditions' };
