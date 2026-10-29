@@ -11,10 +11,15 @@
     ['clock', 'Clock', `green pickup, +${c.clock.addSeconds}s`, { spawnEveryMs: F }],
     ['timeBonus', 'Time bonus', `white pickup, +${c.timeBonus.addSeconds}s`, { spawnEveryMs: F }],
     ['doublePoints', 'Double points', 'purple pickup, coins worth x2', { spawnEveryMs: F }],
+    ['speedBoost', 'Speed boost', 'cyan diamond pickup, move faster', { spawnEveryMs: F }],
     ['bonusCoin', 'Bonus coin', `big orange coin worth ${c.bonusCoin.points}`, { spawnEveryMs: F }],
     ['combo', 'Combo', `quick pickups multiply up to x${c.combo.max}`, { windowMs: -1 }],
     ['lives', 'Lives', `${c.lives.count} drone hits per round`, { count: 1 }],
+    ['levels', 'Levels', `every ${c.levels.coinsPerLevel} coins: one more, faster drone`, { coinsPerLevel: F }],
+    ['droneWarning', 'Drone warning', 'red border when a drone is close', { distance: -1 }],
     ['walls', 'Walls', 'grey blocks in the arena', { blocks: [] }],
+    ['chase', 'Chasing drones', 'nearby drones steer toward you', { range: -1 }],
+    ['nearMiss', 'Near miss', '"Close call!" when a drone just misses', { gap: -F }],
     ['chaser', 'Chaser drone', 'purple drone that hunts you', {}],
     ['countdown', 'Countdown', '3, 2, 1, GO! before each round', { seconds: 0 }],
     ['dash', 'Dash', `${name(c.dash.key)}: speed burst`, { key: 'OFF' }],
@@ -50,6 +55,7 @@
     [c.autoContinue.key, 'auto-continue to the next round'],
     ['1 / 2 / 3', 'difficulty: easy / normal / hard'],
     [name(c.twoPlayer.key), 'two-player mode (P1 on WASD, P2 on arrows)'],
+    [c.avatar.randomKey, 'random avatar (pick one in the wardrobe below)'],
     ['Any key / click', 'hide the start banner'],
     ...ADDITIONS.filter(a => a[3].key).map(([id, label]) => [name(on[id].key), label.toLowerCase(), id])
   ];
