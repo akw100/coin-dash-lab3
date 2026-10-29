@@ -6,6 +6,7 @@ window.COIN_DASH = {
   playerSpeed: 240,
   droneSpeed: 105,
   droneCount: 3,
+  highScoreKey: 'coinDash.best',
   teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
   doublePoints: { multiplier: 2, durationMs: 8000, spawnEveryMs: 10000, lifetimeMs: 7000, color: 0xb388ff },
   colors: { background: 0x101c31, player: 0x71e8ce, coin: 0xffd166, drone: 0xff657a }
