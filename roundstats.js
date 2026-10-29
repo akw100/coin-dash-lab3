@@ -22,7 +22,7 @@ CoinDash.prototype.finish = function (reason) {
   const s = this.stats;
   s.seconds = (this.time.now - this.statsStart) / 1000;
   s.coinsPerMin = s.seconds > 0 ? this.score / s.seconds * 60 : 0;
-  this.statsText = this.add.text(COIN_DASH.width / 2, COIN_DASH.height / 2 + 100,
+  this.statsText = this.add.text(COIN_DASH.width / 2, COIN_DASH.height / 2 + 120,
     `Distance: ${Math.round(s.distance)} px   Survived: ${s.seconds.toFixed(1)}s   Coins/min: ${s.coinsPerMin.toFixed(1)}`,
     { font: '16px monospace', color: '#8fa3bf' }).setOrigin(0.5).setDepth(60);
 };
