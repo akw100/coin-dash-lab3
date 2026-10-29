@@ -7,6 +7,7 @@ window.COIN_DASH = {
   droneSpeed: 105,
   droneCount: 3,
   highScoreKey: 'coinDash.best',
+  timerBar: { y: 40, height: 6, warnSeconds: 10, colorStart: 0x4cd964, colorEnd: 0xff3b30 },
   hitFx: { shakeMs: 220, shakeIntensity: 0.012, flashMs: 160, flashColor: [255, 59, 48] },
   pauseKey: 'KeyP',
   teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
