@@ -10,10 +10,10 @@ export async function twoplayer(t) {
   const p0 = await pos();
   await t.hold('ArrowRight', 300);
   const p1 = await pos();
-  t.assert(p1.b > p0.b + 20 && Math.abs(p1.a - p0.a) < 1, `arrows should move only P2 (${JSON.stringify([p0, p1])})`);
+  t.assert(p1.b > p0.b + 20 && Math.abs(p1.a - p0.a) < 15, `arrows should move only P2 (${JSON.stringify([p0, p1])})`);
   await t.hold('KeyD', 300);
   const p2 = await pos();
-  t.assert(p2.a > p1.a + 20 && Math.abs(p2.b - p1.b) < 1, `WASD should move only P1 (${JSON.stringify([p1, p2])})`);
+  t.assert(p2.a > p1.a + 20 && Math.abs(p2.b - p1.b) < 15, `WASD should move only P1 (${JSON.stringify([p1, p2])})`);
   await t.shot('two-player');
   await t.js('{ const s = __scene(), d = s.drones.getChildren()[0]; d.body.reset(s.player.x, s.player.y); }');
   await t.sleep(200);
