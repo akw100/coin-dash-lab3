@@ -11,10 +11,10 @@ export async function board(t) {
   await t.sleep(150);
   t.assert(await t.js('__scene().board.board.texture.key') === 'board-light', 'L did not switch to the light board');
   await t.press('KeyL');
-  await t.press('KeyT');
+  await t.js('__scene().neonMode = true'); // set directly: the neon key has moved between branches (T, then Y)
   await t.sleep(150);
-  t.assert(await t.js('__scene().board.board.visible') === false, 'neon mode (T) still shows the printed board');
-  await t.press('KeyT');
+  t.assert(await t.js('__scene().board.board.visible') === false, 'neon mode still shows the printed board');
+  await t.js('__scene().neonMode = false');
 }
 
 export async function endPad(t) {
