@@ -9,8 +9,8 @@ CoinDash.prototype.create = function () {
   this.slowActive = false;
   const key = this.input.keyboard.addKey(s.key);
   const barW = 100;
-  this.add.rectangle(COIN_DASH.width - 18 - barW, 40, barW, 6, 0x000000, 0.5).setOrigin(0, 0.5);
-  const fill = this.add.rectangle(COIN_DASH.width - 18 - barW, 40, barW, 6, s.color).setOrigin(0, 0.5);
+  this.add.rectangle(18, 486, barW, 8, 0x000000, 0.6).setOrigin(0, 0.5).setDepth(50);
+  const fill = this.add.rectangle(18, 486, barW, 8, s.color).setOrigin(0, 0.5).setDepth(51);
   this.events.on('postupdate', () => {
     if (this.finished) return;
     const dt = this.game.loop.delta / 1000;
