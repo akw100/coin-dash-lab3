@@ -61,11 +61,15 @@ window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#f
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
 // Lives (lives.js): drone hits cost a life; respawn at center, immune and blinking for invulnMs.
 window.COIN_DASH.lives = { count: 3, invulnMs: 1500, blinkMs: 100, color: '#ff657a' };
+// Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
+window.COIN_DASH.twoPlayer = { key: 'TWO', color: 0xff9f43 };
 
 // Logo (logo.js): gold coin with speed lines, drawn above the start title. Same shapes as logo.svg.
 window.COIN_DASH.logo = { y: 118, radius: 44, gold: 0xffc933, rim: 0xb8860b, edge: 0x3b2a05, shine: 0xfff3b0, lines: [-22, 0, 22],
   spinMin: 0.25, spinMs: 700, bob: 6, bobMs: 900, slide: 10, slideMs: 250 };
 
+// Coin hop (coinhop.js): an uncollected coin jumps to a new place after lifetimeMs, blinking for the last blinkMs.
+COIN_DASH.coinHop = { lifetimeMs: 5000, blinkMs: 1000, ringColor: 0xffffff };
 // Chaser drone (chaser.js): a slower drone that steers toward the player.
 COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
 
@@ -74,6 +78,8 @@ window.COIN_DASH.dash = { key: 'SPACE', multiplier: 3, durationMs: 150, cooldown
 
 // Sounds (sounds.js): synthesised beeps, M mutes (remembered).
 window.COIN_DASH.sounds = { key: 'M', storageKey: 'coinDashMuted', volume: 0.08 };
+// Help overlay (helpoverlay.js): key toggles a controls/rules panel and pauses the game.
+COIN_DASH.helpOverlay = { key: 'K', alpha: 0.85 };
 // Neon theme (theme.js): T toggles it; choice stored under storageKey.
 COIN_DASH.neon = { storageKey: 'coinDashNeon', background: 0x000000, grid: 0x3a0a3a, player: 0x39ff14, coin: 0x00ffff, drone: 0xff00ff };
 // Player trail (features/playertrail.js): ghost squares left behind while moving.
