@@ -38,3 +38,14 @@ export async function timerColour(t) {
   await t.shot('ui-timer-red-light');
   return `${normal} → ${amber} → ${red}`;
 }
+
+export async function overlay(t) {
+  await t.js(park);
+  const shown = () => t.js('__scene().ui.overlay.filter(o => o.active && o.alpha > 0.5).length');
+  t.assert(await shown() === 2, 'start overlay is not showing at the start');
+  const x0 = await t.js('__scene().player.x');
+  await t.hold('ArrowRight', 300);
+  await t.sleep(400);
+  t.assert(await shown() === 0, 'start overlay did not hide after a key press');
+  t.assert(await t.js('__scene().player.x') > x0 + 20, 'the key press did not reach the game');
+}

@@ -66,7 +66,15 @@ CoinDash.prototype.create = function () {
       stroke: '#000000', strokeThickness: 4 }).setOrigin(0.5).setDepth(70);
     const sub = this.add.text(c.width / 2, c.height / 2 + 22, `Collect coins · dodge drones · ${c.roundSeconds}s`,
       { fontFamily: font, fontSize: '18px', color: k.label }).setOrigin(0.5).setDepth(70);
-    this.tweens.add({ targets: [title, sub], alpha: 0, delay: u.titleMs, duration: 600, onComplete: () => { title.destroy(); sub.destroy(); } });
+    const overlay = this.ui.overlay = [title, sub];
+    // fades on the first key or click (the key still reaches the game), or after titleMs; never comes back
+    const hide = () => {
+      this.input.keyboard.off('keydown', hide); this.input.off('pointerdown', hide);
+      this.tweens.add({ targets: overlay, alpha: 0, duration: 250, onComplete: () => overlay.forEach(o => o.destroy()) });
+      this.ui.overlayHidden = true;
+    };
+    this.input.keyboard.on('keydown', hide); this.input.on('pointerdown', hide);
+    this.time.delayedCall(u.titleMs, () => this.ui.overlayHidden || hide());
   }
 };
 CoinDash.prototype.finish = function (reason) {
