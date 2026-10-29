@@ -69,6 +69,8 @@ COIN_DASH.emp = { key: 'B', freezeMs: 3000, ringRadius: 260, ringMs: 500, color:
 COIN_DASH.combo = { windowMs: 2000, max: 3, color: '#ffd166' };
 
 
+// Bonus coin (bonuscoin.js): big pulsing orange coin, worth `points`, gone after lifetimeMs.
+window.COIN_DASH.bonusCoin = { points: 5, spawnEveryMs: 15000, lifetimeMs: 5000, radius: 14, color: 0xff8c1a };
 // Touch controls (touch.js): the player stops once this close to the held pointer.
 COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
