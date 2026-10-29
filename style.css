@@ -59,3 +59,18 @@ body #wardrobe button:hover { transform: translateY(-2px) rotate(-2deg); }
 body #wardrobe button.on { background: var(--sun); color: var(--ink); border-color: var(--ink); }
 body #wardrobe .roll { background: var(--tomato); color: #fff; }
 button:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+/* additions panel (features/additions.js) as the rules sheet from the box; `body` outranks its injected <style> */
+body #additions {
+  margin: 30px 0 0; padding: 4px 22px 18px; border: 4px solid var(--ink); border-radius: 16px; background: #fff; color: var(--ink);
+  box-shadow: 0 7px 0 var(--ink), 0 16px 30px rgb(10 6 40 / .35);
+}
+body #additions h2 { color: var(--tomato); font-size: 20px; letter-spacing: .02em; }
+body #additions small { opacity: 1; color: var(--lilac); }
+body #additions .off { opacity: .45; }
+body #additions input { accent-color: var(--tomato); width: 16px; height: 16px; }
+body #additions kbd {
+  font: 700 13px var(--display); padding: 1px 8px; border: 2px solid var(--ink); border-bottom-width: 4px;
+  border-radius: 7px; background: var(--chip); color: var(--ink);
+}
+body #additions .clash { color: #c25e00; }
