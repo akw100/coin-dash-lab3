@@ -56,3 +56,5 @@ window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000,
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
+// Touch controls (touch.js): the player stops once this close to the held pointer.
+COIN_DASH.touch = { stopDistance: 6 };
