@@ -34,5 +34,9 @@ CoinDash.prototype.update = function () {
   if (this.finished || !this.player) return;
   this.boosted = this.time.now < this.boostUntil;
   if (this.boosted) this.player.body.velocity.scale(COIN_DASH.speedBoost.multiplier);
-  this.player.setFillStyle(this.boosted ? COIN_DASH.speedBoost.color : COIN_DASH.colors.player);
+  if (this.boosted !== this.tinted) {  // touch the colour only on change, so other themes keep theirs
+    if (this.boosted) this.preBoostColor = this.player.fillColor;
+    this.player.setFillStyle(this.boosted ? COIN_DASH.speedBoost.color : this.preBoostColor);
+    this.tinted = this.boosted;
+  }
 };
