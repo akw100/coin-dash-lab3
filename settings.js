@@ -56,3 +56,5 @@ window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000,
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
+// Countdown (countdown.js): "3, 2, 1, GO!" before each round; seconds 0 turns it off.
+COIN_DASH.countdown = { seconds: 3, goMs: 500, color: '#ffd84d', force: false };
