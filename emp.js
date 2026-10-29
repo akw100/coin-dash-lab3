@@ -1,5 +1,5 @@
 /* global COIN_DASH, CoinDash, Phaser */
-// EMP bomb: B (once per round) sends a ring out from the player and freezes all drones for freezeMs.
+// EMP bomb: E (once per round) sends a ring out from the player and freezes all drones for freezeMs.
 const createWithoutEmp = CoinDash.prototype.create;
 CoinDash.prototype.create = function () {
   createWithoutEmp.call(this);

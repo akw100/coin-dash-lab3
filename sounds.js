@@ -24,7 +24,7 @@ CoinDash.prototype.create = function () {
   soundCreate.call(this);
   this.soundScore = 0;
   const k = COIN_DASH.sounds;
-  const badge = this.add.text(COIN_DASH.width - 12, 12, '', { font: '14px monospace', color: '#8fa3bf' })
+  const badge = this.add.text(COIN_DASH.width - 12, 64, '', { font: '14px monospace', color: '#8fa3bf' })
     .setOrigin(1, 0).setDepth(50);
   const refresh = () => badge.setText(sfx.muted ? `Sound (${k.key}): OFF` : `Sound (${k.key}): ON`);
   refresh();

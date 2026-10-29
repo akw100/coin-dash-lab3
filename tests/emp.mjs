@@ -5,17 +5,17 @@ const vel = '__scene().drones.getChildren().map(d => Math.hypot(d.body.velocity.
 export async function emp(t) {
   await t.js(park);
   await t.js('__scene().drones.getChildren().forEach(d => d.body.setVelocity(60, 0))');
-  await t.press('KeyB');
+  await t.press('KeyE');
   await t.sleep(150);
   t.assert(await t.js('__scene().empUsed') === true, 'B did not use the EMP');
   t.assert((await t.js(vel)).every(v => v === 0), 'drones not frozen: ' + JSON.stringify(await t.js(vel)));
   await t.shot('emp-frozen');
-  await t.press('KeyB');
+  await t.press('KeyE');
   await t.sleep(100);
   t.assert((await t.js(vel)).every(v => v === 0), 'second B changed the frozen drones');
   await t.sleep(await t.js('COIN_DASH.emp.freezeMs') + 200);
   t.assert((await t.js(vel)).every(v => v > 0), 'drones did not move again after the freeze');
-  await t.press('KeyB');
+  await t.press('KeyE');
   await t.sleep(100);
   t.assert((await t.js(vel)).every(v => v > 0), 'second B re-froze the drones');
 }

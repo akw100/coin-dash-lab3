@@ -1,5 +1,5 @@
 /* global Phaser, COIN_DASH, CoinDash */
-// Two-player mode: 2 toggles (restarts). P1 = WASD, P2 (orange) = arrow keys, separate scores.
+// Two-player mode: V toggles (restarts). P1 = WASD, P2 (orange) = arrow keys, separate scores.
 // A drone hit eliminates only that player; the round ends when both are out or time is up.
 const createWithoutTwo = CoinDash.prototype.create;
 const updateWithoutTwo = CoinDash.prototype.update;
