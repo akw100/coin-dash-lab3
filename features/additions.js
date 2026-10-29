@@ -13,6 +13,7 @@
     ['doublePoints', 'Double points', 'purple pickup, coins worth x2', { spawnEveryMs: F }],
     ['speedBoost', 'Speed boost', 'cyan diamond pickup, move faster', { spawnEveryMs: F }],
     ['bonusCoin', 'Bonus coin', `big orange coin worth ${c.bonusCoin.points}`, { spawnEveryMs: F }],
+    ['coinRain', 'Coin rain', `small coins fall in the last ${c.coinRain.lastSeconds}s`, { lastSeconds: 0 }],
     ['combo', 'Combo', `quick pickups multiply up to x${c.combo.max}`, { windowMs: -1 }],
     ['lives', 'Lives', `${c.lives.count} drone hits per round`, { count: 1 }],
     ['levels', 'Levels', `every ${c.levels.coinsPerLevel} coins: one more, faster drone`, { coinsPerLevel: F }],
