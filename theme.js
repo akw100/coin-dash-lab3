@@ -20,15 +20,17 @@
 
   function hook() {
     const scene = game.scene.getScene('CoinDash');
-    scene.events.on('create', () => {
+    const setup = () => {
       apply(scene);
       scene.input.keyboard.on('keydown-T', () => {
         neon = !neon;
         try { localStorage.setItem(cfg.storageKey, neon ? '1' : '0'); } catch (e) { /* ignore */ }
         apply(scene);
       });
-    });
-    if (scene.sys.settings.status >= Phaser.Scenes.CREATING) scene.events.emit('create', scene);
+    };
+    scene.events.on('create', setup);
+    // call setup directly: re-emitting 'create' would re-run other features' listeners (double L toggle)
+    if (scene.sys.settings.status >= Phaser.Scenes.CREATING) setup();
   }
 
   if (game.isBooted) hook(); else game.events.once('ready', hook);
