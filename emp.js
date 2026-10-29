@@ -6,7 +6,7 @@ CoinDash.prototype.create = function () {
   const k = COIN_DASH.emp;
   this.empUsed = false;
   this.empFrozen = false;
-  const label = this.add.text(COIN_DASH.width - 12, 12, 'EMP ready', { font: '16px monospace', color: '#4dd8ff' }).setOrigin(1, 0).setDepth(50);
+  const label = this.add.text(COIN_DASH.width / 2, 14, 'EMP ready', { font: '16px monospace', color: '#4dd8ff' }).setOrigin(0.5, 0).setDepth(50);
   this.input.keyboard.on('keydown-' + k.key, () => {
     if (this.finished || this.empUsed) return;
     this.empUsed = this.empFrozen = true;
