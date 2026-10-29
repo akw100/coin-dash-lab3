@@ -63,3 +63,6 @@ COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContin
 COIN_DASH.trail = { everyMs: 40, fadeMs: 300, alpha: 0.5 };
 // Countdown (countdown.js): "3, 2, 1, GO!" before each round; seconds 0 turns it off.
 COIN_DASH.countdown = { seconds: 3, goMs: 500, color: '#ffd84d', force: false };
+// Difficulty (difficulty.js): keys 1/2/3 pick a preset and restart the round.
+COIN_DASH.difficulty = { storageKey: 'coinDashDifficulty', default: 'Normal',
+  presets: { Easy: { key: '1', droneCount: 2, droneSpeed: 70 }, Normal: { key: '2', droneCount: 3, droneSpeed: 105 }, Hard: { key: '3', droneCount: 5, droneSpeed: 150 } } };
