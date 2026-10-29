@@ -7,6 +7,7 @@ window.COIN_DASH = {
   droneSpeed: 105,
   droneCount: 3,
   teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
+  doublePoints: { multiplier: 2, durationMs: 8000, spawnEveryMs: 10000, lifetimeMs: 7000, color: 0xb388ff },
   colors: { background: 0x101c31, player: 0x71e8ce, coin: 0xffd166, drone: 0xff657a }
 };
 // Light mode (L toggles). Sprites are darkened so they stay visible on the light background.
