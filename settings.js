@@ -32,3 +32,5 @@ window.COIN_DASH.glitter = {
 // Light mode (L toggles). Sprites are darkened so they stay visible on the light background.
 COIN_DASH.lightColors = { background: 0xf4f1e8, grid: 0xc9cfd8, hud: '#1b2433',
   player: 0x138a72, coin: 0xd99a00, drone: 0xd7263d, page: '#e9e5da', pageText: '#1b2433' };
+// Shield pickup (shield.js): grab it to absorb the next drone hit.
+window.COIN_DASH.shield = { spawnEveryMs: 12000, lifetimeMs: 7000, graceMs: 700, color: 0x4dd8ff, glow: 0xbff4ff };
