@@ -10,8 +10,7 @@ export async function speedboost(t) {
   const base = await t.js('COIN_DASH.playerSpeed');
   const mult = await t.js('COIN_DASH.speedBoost.multiplier');
   await t.js('__scene().boostUntil = __scene().time.now + 60000');
-  await t.hold('ArrowRight', 150);
-  const v = await t.js('Math.hypot(__scene().player.body.velocity.x, __scene().player.body.velocity.y)');
+  const v = await t.js('{ const s = __scene(); s.cursors.right.isDown = true; s.update(); s.cursors.right.isDown = false; return Math.hypot(s.player.body.velocity.x, s.player.body.velocity.y); }');
   t.assert(Math.abs(v - base * mult) < 1, `boosted speed ${v}, expected ${base * mult}`);
   await t.shot('speedboost-active');
   await t.js('__scene().boostUntil = __scene().time.now + 200');
