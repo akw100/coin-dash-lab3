@@ -7,9 +7,12 @@ window.COIN_DASH = {
   droneSpeed: 105,
   droneCount: 3,
   highScoreKey: 'coinDash.best',
+  timerBar: { y: 40, height: 6, warnSeconds: 10, colorStart: 0x4cd964, colorEnd: 0xff3b30 },
+  hitFx: { shakeMs: 220, shakeIntensity: 0.012, flashMs: 160, flashColor: [255, 59, 48] },
+  pauseKey: 'KeyP',
   teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
   doublePoints: { multiplier: 2, durationMs: 8000, spawnEveryMs: 10000, lifetimeMs: 7000, color: 0xb388ff },
-  magnet: { radius: 160, pullSpeed: 220, durationMs: 8000, spawnEveryMs: 12000, lifetimeMs: 7000, color: 0xe63946 },
+  magnet: { radius: 180, pullSpeed: 220, durationMs: 5000, spawnEveryMs: 12000, lifetimeMs: 7000, color: 0x2e86ff },
   colors: { background: 0x101c31, player: 0x71e8ce, coin: 0xffd166, drone: 0xff657a }
 };
 // Sparkly coins (sparkle.js): twinkle = stars around the coin, burst = stars on pickup.
@@ -59,3 +62,19 @@ COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContin
 
 // Walls (walls.js): static blocks that stop the player and bounce drones. x, y = centre.
 COIN_DASH.walls = { color: 0x8a94a6, blocks: [{ x: 200, y: 320, w: 80, h: 24 }, { x: 560, y: 200, w: 24, h: 100 }, { x: 400, y: 420, w: 100, h: 24 }] };
+
+// Chaser drone (chaser.js): a slower drone that steers toward the player.
+COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
+
+// Dash (dash.js): Space gives a short speed burst in the move direction.
+window.COIN_DASH.dash = { key: 'SPACE', multiplier: 3, durationMs: 150, cooldownMs: 1500, x: 12, y: 46, w: 128, h: 6, color: 0x71e8ce };
+
+// Neon theme (theme.js): T toggles it; choice stored under storageKey.
+COIN_DASH.neon = { storageKey: 'coinDashNeon', background: 0x000000, grid: 0x3a0a3a, player: 0x39ff14, coin: 0x00ffff, drone: 0xff00ff };
+// Player trail (features/playertrail.js): ghost squares left behind while moving.
+COIN_DASH.trail = { everyMs: 40, fadeMs: 300, alpha: 0.5 };
+// Countdown (countdown.js): "3, 2, 1, GO!" before each round; seconds 0 turns it off.
+COIN_DASH.countdown = { seconds: 3, goMs: 500, color: '#ffd84d', force: false };
+// Difficulty (difficulty.js): keys 1/2/3 pick a preset and restart the round.
+COIN_DASH.difficulty = { storageKey: 'coinDashDifficulty', default: 'Normal',
+  presets: { Easy: { key: '1', droneCount: 2, droneSpeed: 70 }, Normal: { key: '2', droneCount: 3, droneSpeed: 105 }, Hard: { key: '3', droneCount: 5, droneSpeed: 150 } } };
