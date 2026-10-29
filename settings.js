@@ -9,7 +9,7 @@ window.COIN_DASH = {
   highScoreKey: 'coinDash.best',
   teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
   doublePoints: { multiplier: 2, durationMs: 8000, spawnEveryMs: 10000, lifetimeMs: 7000, color: 0xb388ff },
-  magnet: { radius: 160, pullSpeed: 220, durationMs: 8000, spawnEveryMs: 12000, lifetimeMs: 7000, color: 0xe63946 },
+  magnet: { radius: 180, pullSpeed: 220, durationMs: 5000, spawnEveryMs: 12000, lifetimeMs: 7000, color: 0x2e86ff },
   colors: { background: 0x101c31, player: 0x71e8ce, coin: 0xffd166, drone: 0xff657a }
 };
 // Sparkly coins (sparkle.js): twinkle = stars around the coin, burst = stars on pickup.
