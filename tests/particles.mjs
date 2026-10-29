@@ -4,7 +4,6 @@ const count = '__scene().children.list.filter(o => o.getData && o.getData("parti
 
 export async function particles(t) {
   await t.js(park);
-  const old = await t.js('({ x: __scene().coin.x, y: __scene().coin.y })');
   await t.js('{ const s = __scene(); s.coin.setPosition(s.player.x, s.player.y); s.coin.body.reset(s.player.x, s.player.y); }');
   await t.sleep(100);
   const n = await t.js(count);
