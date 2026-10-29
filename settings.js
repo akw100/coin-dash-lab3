@@ -67,6 +67,14 @@ COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContin
 COIN_DASH.speedBoost = { multiplier: 1.6, durationMs: 4000, spawnEveryMs: 8000, lifetimeMs: 7000, color: 0x00e5ff };
 
 
+// EMP bomb (emp.js): B freezes all drones for freezeMs, once per round.
+COIN_DASH.emp = { key: 'B', freezeMs: 3000, ringRadius: 260, ringMs: 500, color: 0x4dd8ff, frozenColor: 0x9aa3ad };
+// Combo (combo.js): coins within windowMs of the previous one raise the multiplier up to max.
+COIN_DASH.combo = { windowMs: 2000, max: 3, color: '#ffd166' };
+
+
+// Bonus coin (bonuscoin.js): big pulsing orange coin, worth `points`, gone after lifetimeMs.
+window.COIN_DASH.bonusCoin = { points: 5, spawnEveryMs: 15000, lifetimeMs: 5000, radius: 14, color: 0xff8c1a };
 // Touch controls (touch.js): the player stops once this close to the held pointer.
 COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
