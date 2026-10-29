@@ -6,7 +6,7 @@ CoinDash.prototype.create = function () {
   const L = COIN_DASH.levels, c = COIN_DASH;
   this.level = 1;
   const font = { font: 'bold 14px monospace', color: '#ffffff' };
-  const hud = this.levelHud = this.add.text(c.width - 18, 12, 'Level 1', font).setOrigin(1, 0).setDepth(50);
+  const hud = this.levelHud = this.add.text(c.width / 2, c.height - 8, 'Level 1', font).setOrigin(0.5, 1).setDepth(50);
   this.events.on('update', () => {
     if (this.finished) return;
     if (this.score >= this.level * L.coinsPerLevel) {
