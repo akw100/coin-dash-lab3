@@ -6,6 +6,35 @@ window.COIN_DASH = {
   playerSpeed: 240,
   droneSpeed: 105,
   droneCount: 3,
+  highScoreKey: 'coinDash.best',
   pauseKey: 'KeyP',
+  teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
+  doublePoints: { multiplier: 2, durationMs: 8000, spawnEveryMs: 10000, lifetimeMs: 7000, color: 0xb388ff },
+  magnet: { radius: 160, pullSpeed: 220, durationMs: 8000, spawnEveryMs: 12000, lifetimeMs: 7000, color: 0xe63946 },
   colors: { background: 0x101c31, player: 0x71e8ce, coin: 0xffd166, drone: 0xff657a }
 };
+// Sparkly coins (sparkle.js): twinkle = stars around the coin, burst = stars on pickup.
+window.COIN_DASH.sparkle = {
+  colors: [0xffffff, 0xfff3b0, 0xffd166],
+  lightColors: [0xd99a00, 0xb86e00, 0xf2b705], // used while light mode (L) is on
+  twinkleEvery: 90,   // ms between twinkle stars
+  twinkleRadius: 18,
+  burstCount: 24,
+  burstSpeed: 220,
+  pulseMs: 450        // gold glow/shimmer half-period
+};
+// Glitter mode (glitter.js), toggled with G.
+window.COIN_DASH.glitter = {
+  colors: [0xffffff, 0xff9ff3, 0x9ad8ff, 0xfff3b0, 0xb8ff9a],
+  trailEvery: 25,   // ms between trail specks behind the player
+  rainEvery: 30,    // ms between falling specks
+  droneEvery: 60    // ms between shimmer specks per drone
+};
+
+// Light mode (L toggles). Sprites are darkened so they stay visible on the light background.
+COIN_DASH.lightColors = { background: 0xf4f1e8, grid: 0xc9cfd8, hud: '#1b2433',
+  player: 0x138a72, coin: 0xd99a00, drone: 0xd7263d, page: '#e9e5da', pageText: '#1b2433' };
+// Shield pickup (shield.js): grab it to absorb the next drone hit.
+window.COIN_DASH.shield = { spawnEveryMs: 12000, lifetimeMs: 7000, graceMs: 700, color: 0x4dd8ff, glow: 0xbff4ff };
+// Clock pickup (clock.js): adds addSeconds to the round when grabbed.
+window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
