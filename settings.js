@@ -56,3 +56,6 @@ window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000,
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
+
+// Dash (dash.js): Space gives a short speed burst in the move direction.
+window.COIN_DASH.dash = { key: 'SPACE', multiplier: 3, durationMs: 150, cooldownMs: 1500, x: 12, y: 46, w: 128, h: 6, color: 0x71e8ce };
