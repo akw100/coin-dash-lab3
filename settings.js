@@ -56,3 +56,6 @@ window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000,
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
+
+// Time bonus (timebonus.js): white clock pickup, adds addSeconds to the deadline.
+COIN_DASH.timeBonus = { addSeconds: 5, spawnEveryMs: 10000, lifetimeMs: 8000 };
