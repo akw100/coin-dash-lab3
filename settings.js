@@ -63,6 +63,12 @@ COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContin
 // Drone warning (dronewarning.js): drones closer than distance px get a white outline and the screen border glows red.
 COIN_DASH.droneWarning = { distance: 90 };
 
+// Chaser drone (chaser.js): a slower drone that steers toward the player.
+COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
+
+// Dash (dash.js): Space gives a short speed burst in the move direction.
+window.COIN_DASH.dash = { key: 'SPACE', multiplier: 3, durationMs: 150, cooldownMs: 1500, x: 12, y: 46, w: 128, h: 6, color: 0x71e8ce };
+
 // Neon theme (theme.js): T toggles it; choice stored under storageKey.
 COIN_DASH.neon = { storageKey: 'coinDashNeon', background: 0x000000, grid: 0x3a0a3a, player: 0x39ff14, coin: 0x00ffff, drone: 0xff00ff };
 // Player trail (features/playertrail.js): ghost squares left behind while moving.
