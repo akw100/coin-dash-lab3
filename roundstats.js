@@ -12,6 +12,7 @@ CoinDash.prototype.create = function () {
 CoinDash.prototype.update = function () {
   updateWithoutStats.call(this);
   if (this.finished) return;
+  if (this.statsText) { this.statsText.destroy(); this.statsText = null; } // stale line from an earlier round
   this.stats.distance += Math.hypot(this.player.x - this.statsLast.x, this.player.y - this.statsLast.y);
   this.statsLast = { x: this.player.x, y: this.player.y };
 };
