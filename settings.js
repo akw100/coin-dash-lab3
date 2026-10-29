@@ -139,6 +139,8 @@ COIN_DASH.characters = { bobPx: 2, bobMs: 260, squash: 0.25, squashMs: 180, blin
 
 // Keepalive (keepalive.js): restart the frame loop after it has not advanced for stalledTicks checks of intervalMs.
 COIN_DASH.keepalive = { intervalMs: 400, stalledTicks: 2 };
+// Coin rain (coinrain.js): small coins fall from the top during the last seconds of a round.
+COIN_DASH.coinRain = { lastSeconds: 5, spawnEveryMs: 250, points: 1, radius: 6, color: 0xffe066, minSpeed: 120, maxSpeed: 220 };
 // Avatar wardrobe (avatar.js): panel under the game picks the look; randomKey rolls a random one. Saved under storageKey.
 COIN_DASH.avatar = { storageKey: 'coinDashAvatar', randomKey: 'C', auraEveryMs: 45, auraMs: 600,
   default: { body: 'cube', color: 'theme', face: 'happy', hat: 'none', aura: 'none' },
