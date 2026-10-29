@@ -65,6 +65,11 @@ window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#f
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
 // Bonus coin (bonuscoin.js): big pulsing orange coin, worth `points`, gone after lifetimeMs.
 window.COIN_DASH.bonusCoin = { points: 5, spawnEveryMs: 15000, lifetimeMs: 5000, radius: 14, color: 0xff8c1a };
+
+// Wraparound (wraparound.js): the player exits one edge and enters the opposite one. Set enabled: false to stop at walls.
+COIN_DASH.wraparound = { enabled: true };
+// EMP bomb (emp.js): B freezes all drones for freezeMs, once per round.
+COIN_DASH.emp = { key: 'B', freezeMs: 3000, ringRadius: 260, ringMs: 500, color: 0x4dd8ff, frozenColor: 0x9aa3ad };
 // Combo (combo.js): coins within windowMs of the previous one raise the multiplier up to max.
 COIN_DASH.combo = { windowMs: 2000, max: 3, color: '#ffd166' };
 
@@ -137,6 +142,8 @@ COIN_DASH.characters = { bobPx: 2, bobMs: 260, squash: 0.25, squashMs: 180, blin
 
 // Keepalive (keepalive.js): restart the frame loop after it has not advanced for stalledTicks checks of intervalMs.
 COIN_DASH.keepalive = { intervalMs: 400, stalledTicks: 2 };
+// Coin rain (coinrain.js): small coins fall from the top during the last seconds of a round.
+COIN_DASH.coinRain = { lastSeconds: 5, spawnEveryMs: 250, points: 1, radius: 6, color: 0xffe066, minSpeed: 120, maxSpeed: 220 };
 // Avatar wardrobe (avatar.js): panel under the game picks the look; randomKey rolls a random one. Saved under storageKey.
 COIN_DASH.avatar = { storageKey: 'coinDashAvatar', randomKey: 'C', auraEveryMs: 45, auraMs: 600,
   default: { body: 'cube', color: 'theme', face: 'happy', hat: 'none', aura: 'none' },
