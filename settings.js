@@ -113,3 +113,6 @@ COIN_DASH.difficulty = { storageKey: 'coinDashDifficulty', default: 'Normal',
   presets: { Easy: { key: '1', droneCount: 2, droneSpeed: 70 }, Normal: { key: '2', droneCount: 3, droneSpeed: 105 }, Hard: { key: '3', droneCount: 5, droneSpeed: 150 } } };
 // Levels (levels.js): every coinsPerLevel coins the level rises, one more drone spawns, drones speed up.
 window.COIN_DASH.levels = { coinsPerLevel: 5, speedUp: 1.1, minSpawnDistance: 250, bannerMs: 1200 };
+
+// Coin pickup particles (particles.js).
+COIN_DASH.particles = { count: 12, radius: 3, distance: 60, fadeMs: 400 };
