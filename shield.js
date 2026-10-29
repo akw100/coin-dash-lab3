@@ -20,6 +20,11 @@ CoinDash.prototype.create = function () {
     this.shielded = false;
     bubble.setVisible(false);
     this.shieldGraceUntil = this.time.now + s.graceMs;
+    // bounce the nearest drone away from the player
+    const d = this.drones.getChildren().reduce((a, b) =>
+      Phaser.Math.Distance.BetweenPoints(a, this.player) < Phaser.Math.Distance.BetweenPoints(b, this.player) ? a : b);
+    const sp = COIN_DASH.droneSpeed, an = Phaser.Math.Angle.BetweenPoints(this.player, d);
+    d.body.setVelocity(Math.cos(an) * sp, Math.sin(an) * sp);
     for (let i = 0; i < 10; i++) {
       const a = i / 10 * Math.PI * 2;
       const dot = this.add.circle(this.player.x, this.player.y, 4, s.glow);
