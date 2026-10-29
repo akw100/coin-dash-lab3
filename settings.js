@@ -56,3 +56,5 @@ window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000,
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
+// Speed boost (speedboost.js): grab the cyan diamond to move faster for a while.
+COIN_DASH.speedBoost = { multiplier: 1.6, durationMs: 4000, spawnEveryMs: 8000, lifetimeMs: 7000, color: 0x00e5ff };
