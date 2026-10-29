@@ -66,6 +66,8 @@ window.COIN_DASH.twoPlayer = { key: 'TWO', color: 0xff9f43 };
 window.COIN_DASH.logo = { y: 118, radius: 44, gold: 0xffc933, rim: 0xb8860b, edge: 0x3b2a05, shine: 0xfff3b0, lines: [-22, 0, 22],
   spinMin: 0.25, spinMs: 700, bob: 6, bobMs: 900, slide: 10, slideMs: 250 };
 
+// Coin hop (coinhop.js): an uncollected coin jumps to a new place after lifetimeMs, blinking for the last blinkMs.
+COIN_DASH.coinHop = { lifetimeMs: 5000, blinkMs: 1000, ringColor: 0xffffff };
 // Chaser drone (chaser.js): a slower drone that steers toward the player.
 COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
 
