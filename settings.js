@@ -60,6 +60,6 @@ window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#f
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
 // Help overlay (helpoverlay.js): key toggles a controls/rules panel and pauses the game.
-COIN_DASH.helpOverlay = { key: 'H', alpha: 0.85 };
+COIN_DASH.helpOverlay = { key: 'K', alpha: 0.85 };
 // Player trail (features/playertrail.js): ghost squares left behind while moving.
 COIN_DASH.trail = { everyMs: 40, fadeMs: 300, alpha: 0.5 };

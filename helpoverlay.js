@@ -1,5 +1,5 @@
 /* global COIN_DASH, CoinDash */
-// Help overlay: H shows controls and rules, pauses physics, and pushes the deadline back by the time it was open.
+// Help overlay: K shows controls and rules, pauses physics, and pushes the deadline back by the time it was open.
 const createWithoutHelp = CoinDash.prototype.create;
 CoinDash.prototype.create = function () {
   createWithoutHelp.call(this);
