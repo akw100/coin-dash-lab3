@@ -14,3 +14,15 @@ export async function particles(t) {
   t.assert(left === 0, `${left} burst circles still alive 1s later`);
   return `burst ${n} → ${left}`;
 }
+
+// The burst must still work after R: particles.js used to set up only once per page, not once per round.
+export async function afterRestart(t) {
+  await t.press('KeyR');
+  await t.sleep(300);
+  await t.js(park);
+  await t.js('{ const s = __scene(); s.coin.setPosition(s.player.x, s.player.y); s.coin.body.reset(s.player.x, s.player.y); }');
+  await t.sleep(100);
+  const n = await t.js(count);
+  t.assert(n === 12, `expected 12 burst circles after a restart, got ${n}`);
+  return `burst ${n} after R`;
+}

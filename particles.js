@@ -1,8 +1,8 @@
 /* global Phaser, COIN_DASH */
 // Coin pickup burst: small yellow circles fly out from the old coin spot and fade (tweened shapes, no textures).
 function addParticles(scene) {
-  if (scene.particlesOn) return; // lightmode.js re-emits 'create'
-  scene.particlesOn = true;
+  if (scene.particlesCoin === scene.coin) return; // lightmode.js re-emits 'create': set up once per round (each round has a new coin)
+  scene.particlesCoin = scene.coin;
   const p = COIN_DASH.particles;
   let score = scene.score, x = scene.coin.x, y = scene.coin.y;
   const update = () => {

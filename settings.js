@@ -155,8 +155,6 @@ COIN_DASH.avatar = { storageKey: 'coinDashAvatar', randomKey: 'C', auraEveryMs: 
     aura: { none: 'None', fire: '🔥 Fire', sparkles: '✨ Sparkles', bubbles: '🫧 Bubbles', hearts: '💖 Hearts' }
   } };
 
-// Fresh restart (freshrestart.js): reload the page on every new round so stale feature listeners never pile up.
-COIN_DASH.freshRestart = { enabled: true };
 // Poison coin (poisoncoin.js): a purple coin appears now and then; touching it costs penalty points.
 COIN_DASH.poisonCoin = { penalty: 3, spawnEveryMs: 8000, lifetimeMs: 5000, radius: 10, minDistance: 100,
   color: 0x9b30ff, ring: 0x2a0040, textColor: '#c77dff' };
