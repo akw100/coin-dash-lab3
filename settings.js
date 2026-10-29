@@ -51,3 +51,7 @@ COIN_DASH.ui = {
 window.COIN_DASH.shield = { spawnEveryMs: 12000, lifetimeMs: 7000, graceMs: 700, color: 0x4dd8ff, glow: 0xbff4ff };
 // Clock pickup (clock.js): adds addSeconds to the round when grabbed.
 window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
+
+// Sad sound on loss (sound.js): trombone "wah-wah-wah-waaah", M mutes. notes = [Hz, seconds]; the last one gets vibrato.
+window.COIN_DASH.sound = { key: 'M', storageKey: 'coinDash.muted', volume: 0.25,
+  notes: [[233, 0.35], [220, 0.35], [208, 0.35], [196, 1.1]], vibratoHz: 6, vibratoCents: 35 };
