@@ -55,6 +55,10 @@ window.COIN_DASH.shield = { spawnEveryMs: 10000, lifetimeMs: 7000, graceMs: 700,
 // Clock pickup (clock.js): adds addSeconds to the round when grabbed.
 window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
 
+// Sad sound on loss (sound.js): trombone "wah-wah-wah-waaah", M mutes. notes = [Hz, seconds]; the last one gets vibrato.
+window.COIN_DASH.sound = { key: 'M', storageKey: 'coinDash.muted', volume: 0.25,
+  notes: [[233, 0.35], [220, 0.35], [208, 0.35], [196, 1.1]], vibratoHz: 6, vibratoCents: 35 };
+
 // Half-points mode (halfmode.js): H toggles; a hit halves the score instead of ending the round.
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
