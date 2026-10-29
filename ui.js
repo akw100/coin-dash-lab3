@@ -46,7 +46,10 @@ CoinDash.prototype.create = function () {
     const secs = this.finished ? 0 : Math.max(0, Math.ceil((this.deadline - this.time.now) / 1000));
     scoreText.setText(`${this.score}`);
     if (!this.finished) timerText.setText(`${secs}s`);
-    timerText.setColor(secs <= u.urgentSeconds ? u.urgent : pal().text);
+    const left = this.finished ? 0 : this.deadline - this.time.now, tm = u.timer, tc = this.lightMode ? tm.light : tm.dark;
+    const red = left < tm.redSeconds * 1000;
+    timerText.setColor(red ? tc.red : left < tm.amberSeconds * 1000 ? tc.amber : pal().text);
+    timerText.setAlpha(red && !this.finished ? 0.85 + 0.15 * Math.sin(this.time.now / tm.pulseMs * Math.PI) : 1);
     if (this.score > lastScore) this.tweens.add({ targets: scoreText, scale: 1.3, duration: 120, yoyo: true });
     lastScore = this.score;
     sprites.forEach((s, i) => shadows[i].setPosition(s.x + u.shadow.dx, s.y + u.shadow.dy).setScale(s.scale));

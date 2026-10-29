@@ -19,3 +19,22 @@ export async function endcard(t) {
   await t.sleep(300);
   await t.shot('ui-end');
 }
+
+export async function timerColour(t) {
+  await t.js(park);
+  const colour = () => t.js('__scene().ui.timerText.style.color');
+  const set = ms => t.js(`__scene().deadline = __scene().time.now + ${ms}`);
+  const normal = await colour();
+  await set(8000); await t.sleep(150);
+  const amber = await colour();
+  await set(3000); await t.sleep(150);
+  const red = await colour();
+  await set(30000); await t.sleep(150); // a clock pickup pushing the deadline later
+  const back = await colour();
+  t.assert(new Set([normal, amber, red]).size === 3, `timer colours not distinct (${normal}, ${amber}, ${red})`);
+  t.assert(back === normal, `timer colour did not recover after deadline moved later (${back})`);
+  await t.press('KeyL');
+  await set(3000); await t.sleep(150);
+  await t.shot('ui-timer-red-light');
+  return `${normal} → ${amber} → ${red}`;
+}
