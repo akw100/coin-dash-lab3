@@ -76,6 +76,10 @@ window.COIN_DASH.lives = { count: 3, invulnMs: 1500, blinkMs: 100, color: '#ff65
 
 // Screen shake (screenshake.js): camera shake + red flash when a drone catches the player.
 COIN_DASH.screenShake = { ms: 300, intensity: 0.02 };
+// Speed boost (speedboost.js): grab the cyan diamond to move faster for a while.
+COIN_DASH.speedBoost = { multiplier: 1.6, durationMs: 4000, spawnEveryMs: 8000, lifetimeMs: 7000, color: 0x00e5ff };
+
+
 // Touch controls (touch.js): the player stops once this close to the held pointer.
 COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
