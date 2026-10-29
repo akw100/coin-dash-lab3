@@ -1,7 +1,61 @@
+/* Board-game box: the page is the box lid on a striped cobalt table, the game is the board inside. */
+:root {
+  --ink: #1a1446; --cobalt: #2b4ee6; --tomato: #ff4b3e; --sun: #ffc928; --lilac: #6b5fb0; --chip: #f1efff;
+  --display: "Arial Rounded MT Bold", ui-rounded, "SF Pro Rounded", Nunito, "Trebuchet MS", system-ui, sans-serif;
+  --burst: polygon(50% 0%,57.4% 12.7%,69.1% 3.8%,71.1% 18.4%,85.4% 14.6%,81.6% 28.9%,96.2% 30.9%,87.3% 42.6%,100% 50%,87.3% 57.4%,96.2% 69.1%,81.6% 71.1%,85.4% 85.4%,71.1% 81.6%,69.1% 96.2%,57.4% 87.3%,50% 100%,42.6% 87.3%,30.9% 96.2%,28.9% 81.6%,14.6% 85.4%,18.4% 71.1%,3.8% 69.1%,12.7% 57.4%,0% 50%,12.7% 42.6%,3.8% 30.9%,18.4% 28.9%,14.6% 14.6%,28.9% 18.4%,30.9% 3.8%,42.6% 12.7%);
+}
 * { box-sizing: border-box; }
-body { margin: 0; background: #0a1120; color: #e5edf7; font: 17px/1.5 system-ui, sans-serif; }
-main { max-width: 850px; margin: 30px auto; padding: 0 20px; }
-header > p:first-child { color: #71e8ce; font-size: 12px; letter-spacing: .15em; }
-h1 { margin: 0; font-size: 40px; }
-#game { border: 1px solid #34445e; border-radius: 12px; overflow: hidden; }
+body {
+  margin: 0; min-height: 100vh; color: #fff; font: 600 17px/1.5 var(--display);
+  background: var(--cobalt) repeating-linear-gradient(-45deg, transparent 0 28px, rgb(255 255 255 / .06) 28px 56px);
+}
+::selection { background: var(--sun); color: var(--ink); }
+main { max-width: 880px; margin: 0 auto; padding: 28px 20px 48px; }
+
+header { position: relative; text-align: center; margin-bottom: 30px; }
+header > p:first-child { /* the lab tag becomes a sticker seal on the lid */
+  position: absolute; top: -8px; right: 0; width: 92px; height: 92px; margin: 0; padding: 14px;
+  display: grid; place-items: center; text-align: center; font-size: 11px; line-height: 1.15; letter-spacing: .04em;
+  background: var(--tomato); color: #fff; clip-path: var(--burst); transform: rotate(12deg);
+}
+h1 {
+  position: relative; display: inline-block; isolation: isolate; margin: 18px 0 0; padding: 18px 64px;
+  font-size: clamp(52px, 10vw, 92px); line-height: 1; letter-spacing: -.01em; color: var(--sun);
+  -webkit-text-stroke: 9px var(--ink); paint-order: stroke fill; text-shadow: 0 9px 0 var(--ink);
+  transform: rotate(-3deg);
+}
+h1::after { content: "!"; }
+h1::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--tomato); clip-path: var(--burst); }
+header > p:not(:first-child) { max-width: 46ch; margin: 18px auto 0; font-size: 18px; text-shadow: 0 2px 0 rgb(26 20 70 / .5); }
+header::after {
+  content: "AGES 8+  ·  1–2 PLAYERS  ·  45-SECOND ROUNDS"; display: inline-block; margin-top: 14px; padding: 6px 16px;
+  border-radius: 999px; background: var(--ink); color: var(--sun); font-size: 13px; letter-spacing: .1em; white-space: pre;
+}
+
+#game {
+  border: 6px solid var(--ink); border-radius: 18px; overflow: hidden; background: var(--ink);
+  box-shadow: 0 10px 0 var(--ink), 0 26px 50px rgb(10 6 40 / .5);
+}
 canvas { display: block; }
+
+main > p { margin: 30px 0 0; text-align: center; }
+main > p strong {
+  display: inline-block; margin: 0 4px; padding: 2px 12px; border: 2px solid var(--ink); border-bottom-width: 5px;
+  border-radius: 10px; background: #fff; color: var(--ink); font-size: 15px;
+}
+
+/* avatar wardrobe (avatar.js) as the box's token tray; `body` outranks its inline <style> */
+body #wardrobe {
+  max-width: none; margin: 30px 0 0; padding: 14px 18px; border: 4px solid var(--ink); border-radius: 16px;
+  background: #fff; color: var(--ink); font: 700 13px var(--display);
+  box-shadow: 0 7px 0 var(--ink), 0 16px 30px rgb(10 6 40 / .35);
+}
+body #wardrobe b { color: var(--lilac); }
+body #wardrobe button {
+  border: 2px solid var(--ink); background: var(--chip); color: var(--ink); padding: 3px 11px;
+  transition: transform .15s cubic-bezier(.2, .9, .3, 1.4);
+}
+body #wardrobe button:hover { transform: translateY(-2px) rotate(-2deg); }
+body #wardrobe button.on { background: var(--sun); color: var(--ink); border-color: var(--ink); }
+body #wardrobe .roll { background: var(--tomato); color: #fff; }
+button:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
