@@ -9,7 +9,7 @@ export async function droneseyes(t) {
   await t.js(park);
   await t.sleep(100);
   const count = await t.js('__scene().dronesEyes.length');
-  const expected = await t.js('COIN_DASH.droneCount * 2');
+  const expected = await t.js('__scene().drones.getChildren().length * 2'); // count the real group: presets and the chaser change it
   t.assert(count === expected, `expected ${expected} eyes (2 per drone), found ${count}`);
   const far = await t.js(eyes);
   t.assert(far.every(e => e.dist <= 14), `eyes are not on their drones (${JSON.stringify(far)})`);
