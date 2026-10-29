@@ -63,12 +63,18 @@ COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContin
 // Walls (walls.js): static blocks that stop the player and bounce drones. x, y = centre.
 COIN_DASH.walls = { color: 0x8a94a6, blocks: [{ x: 200, y: 320, w: 80, h: 24 }, { x: 560, y: 200, w: 24, h: 100 }, { x: 400, y: 420, w: 100, h: 24 }] };
 
+// Logo (logo.js): gold coin with speed lines, drawn above the start title. Same shapes as logo.svg.
+window.COIN_DASH.logo = { y: 118, radius: 44, gold: 0xffc933, rim: 0xb8860b, edge: 0x3b2a05, shine: 0xfff3b0, lines: [-22, 0, 22],
+  spinMin: 0.25, spinMs: 700, bob: 6, bobMs: 900, slide: 10, slideMs: 250 };
+
 // Chaser drone (chaser.js): a slower drone that steers toward the player.
 COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
 
 // Dash (dash.js): Space gives a short speed burst in the move direction.
 window.COIN_DASH.dash = { key: 'SPACE', multiplier: 3, durationMs: 150, cooldownMs: 1500, x: 12, y: 46, w: 128, h: 6, color: 0x71e8ce };
 
+// Sounds (sounds.js): synthesised beeps, M mutes (remembered).
+window.COIN_DASH.sounds = { key: 'M', storageKey: 'coinDashMuted', volume: 0.08 };
 // Neon theme (theme.js): T toggles it; choice stored under storageKey.
 COIN_DASH.neon = { storageKey: 'coinDashNeon', background: 0x000000, grid: 0x3a0a3a, player: 0x39ff14, coin: 0x00ffff, drone: 0xff00ff };
 // Player trail (features/playertrail.js): ghost squares left behind while moving.
