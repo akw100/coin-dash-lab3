@@ -165,3 +165,7 @@ COIN_DASH.board = { ink: 0x1a1446, square: 40, track: 12, font: '"Arial Rounded 
   dark: { base: '#2b1b66', check: '#34217a', emblem: 'rgba(255,255,255,0.07)' }, light: { base: '#bfe6ff', check: '#aedcff', emblem: 'rgba(26,20,70,0.08)' },
   trackColors: ['#ff4b3e', '#ffc928', '#1fb86b', '#39b5ff'], gold: 0xffc928, goldRim: 0xd98e00, burst: 0xff4b3e, pips: { coins: 0xff4b3e, time: 0x39b5ff },
   confetti: 40 };
+// Bad experience mode (badmode.js): X opts in; leaving takes exitPresses presses of X. Times in ms.
+COIN_DASH.badMode = { key: 'X', exitPresses: 3, lagFrames: 12, invertEveryMs: 9000, invertMs: 4000,
+  flipEveryMs: 13000, flipMs: 3500, freezeEveryMs: 7000, freezeMs: 700, adEveryMs: 11000, adMs: 6000,
+  fakeOverEveryMs: 17000, fakeOverMs: 1500, beepEveryMs: 5000, shyRadius: 70, shyChance: 0.5, decoys: 3 };
