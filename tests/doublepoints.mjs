@@ -2,6 +2,7 @@
 const park = '__scene().drones.getChildren().forEach((d, i) => d.body.reset(30 + i * 30, 480))';
 const touch = what => `{ const s = __scene(), o = ${what}; o.setPosition(s.player.x, s.player.y); o.body.reset(s.player.x, s.player.y); }`;
 const grabCoin = async t => {
+  await t.js('__scene().lastCoinAt = -Infinity'); // keep combo.js out of this check
   const before = await t.js('__scene().score');
   await t.js(touch('s.coin'));
   await t.sleep(200);
