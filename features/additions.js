@@ -55,7 +55,7 @@
     [c.autoContinue.key, 'auto-continue to the next round'],
     ['1 / 2 / 3', 'difficulty: easy / normal / hard'],
     [name(c.twoPlayer.key), 'two-player mode (P1 on WASD, P2 on arrows)'],
-    [c.avatar.randomKey, 'random avatar (pick one in the wardrobe below)'],
+    [c.avatar.randomKey, 'random avatar (or pick one in the avatar wardrobe)'],
     ['Any key / click', 'hide the start banner'],
     ...ADDITIONS.filter(a => a[3].key).map(([id, label]) => [name(on[id].key), label.toLowerCase(), id])
   ];
