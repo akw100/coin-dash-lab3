@@ -18,6 +18,7 @@
     ['lives', 'Lives', `${c.lives.count} drone hits per round`, { count: 1 }],
     ['levels', 'Levels', `every ${c.levels.coinsPerLevel} coins: one more, faster drone`, { coinsPerLevel: F }],
     ['droneWarning', 'Drone warning', 'red border when a drone is close', { distance: -1 }],
+    ['wraparound', 'Wraparound', 'leave one edge, come back on the other', { enabled: false }],
     ['walls', 'Walls', 'grey blocks in the arena', { blocks: [] }],
     ['chase', 'Chasing drones', 'nearby drones steer toward you', { range: -1 }],
     ['nearMiss', 'Near miss', '"Close call!" when a drone just misses', { gap: -F }],
