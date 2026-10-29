@@ -51,9 +51,13 @@ COIN_DASH.ui = {
 };
 
 // Shield pickup (shield.js): grab it to absorb the next drone hit.
-window.COIN_DASH.shield = { spawnEveryMs: 12000, lifetimeMs: 7000, graceMs: 700, color: 0x4dd8ff, glow: 0xbff4ff };
+window.COIN_DASH.shield = { spawnEveryMs: 10000, lifetimeMs: 7000, graceMs: 700, color: 0x2ecc71, glow: 0x9dffb8 };
 // Clock pickup (clock.js): adds addSeconds to the round when grabbed.
 window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
+
+// Sad sound on loss (sound.js): trombone "wah-wah-wah-waaah", M mutes. notes = [Hz, seconds]; the last one gets vibrato.
+window.COIN_DASH.sound = { key: 'M', storageKey: 'coinDash.muted', volume: 0.25,
+  notes: [[233, 0.35], [220, 0.35], [208, 0.35], [196, 1.1]], vibratoHz: 6, vibratoCents: 35 };
 
 // Half-points mode (halfmode.js): H toggles; a hit halves the score instead of ending the round.
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
@@ -61,6 +65,8 @@ window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#f
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
 // Bonus coin (bonuscoin.js): big pulsing orange coin, worth `points`, gone after lifetimeMs.
 window.COIN_DASH.bonusCoin = { points: 5, spawnEveryMs: 15000, lifetimeMs: 5000, radius: 14, color: 0xff8c1a };
+// Touch controls (touch.js): the player stops once this close to the held pointer.
+COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
 window.COIN_DASH.twoPlayer = { key: 'TWO', color: 0xff9f43 };
 
@@ -70,6 +76,11 @@ window.COIN_DASH.logo = { y: 118, radius: 44, gold: 0xffc933, rim: 0xb8860b, edg
 
 // Coin hop (coinhop.js): an uncollected coin jumps to a new place after lifetimeMs, blinking for the last blinkMs.
 COIN_DASH.coinHop = { lifetimeMs: 5000, blinkMs: 1000, ringColor: 0xffffff };
+
+
+// Time bonus (timebonus.js): white clock pickup, adds addSeconds to the deadline.
+COIN_DASH.timeBonus = { addSeconds: 5, spawnEveryMs: 10000, lifetimeMs: 8000 };
+
 // Chaser drone (chaser.js): a slower drone that steers toward the player.
 COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
 
