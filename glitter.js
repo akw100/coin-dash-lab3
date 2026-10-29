@@ -3,6 +3,7 @@
 // Reuses the 'sparkle' star texture made by sparkle.js. The mode survives a restart (R).
 let glitterOn = false;
 function addGlitter(scene) {
+  if (scene.glitter?.trail.active && scene.glitter.trail.scene) return; // already set up for this run
   const g = COIN_DASH.glitter, base = {
     emitting: false, tint: g.colors, blendMode: 'ADD', rotate: { min: 0, max: 180 }, alpha: { start: 1, end: 0 }
   };
