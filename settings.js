@@ -69,13 +69,12 @@ window.COIN_DASH.bonusCoin = { points: 5, spawnEveryMs: 15000, lifetimeMs: 5000,
 // Wraparound (wraparound.js): the player exits one edge and enters the opposite one. Set enabled: false to stop at walls.
 COIN_DASH.wraparound = { enabled: true };
 // EMP bomb (emp.js): B freezes all drones for freezeMs, once per round.
-COIN_DASH.emp = { key: 'B', freezeMs: 3000, ringRadius: 260, ringMs: 500, color: 0x4dd8ff, frozenColor: 0x9aa3ad };
+COIN_DASH.emp = { key: 'E', freezeMs: 3000, ringRadius: 260, ringMs: 500, color: 0x4dd8ff, frozenColor: 0x9aa3ad };
 // Combo (combo.js): coins within windowMs of the previous one raise the multiplier up to max.
 COIN_DASH.combo = { windowMs: 2000, max: 3, color: '#ffd166' };
 
 
 // EMP bomb (emp.js): B freezes all drones for freezeMs, once per round.
-COIN_DASH.emp = { key: 'B', freezeMs: 3000, ringRadius: 260, ringMs: 500, color: 0x4dd8ff, frozenColor: 0x9aa3ad };
 // Lives (lives.js): drone hits cost a life; respawn at center, immune and blinking for invulnMs.
 window.COIN_DASH.lives = { count: 3, invulnMs: 1500, blinkMs: 100, color: '#ff657a' };
 
@@ -88,7 +87,7 @@ COIN_DASH.speedBoost = { multiplier: 1.6, durationMs: 4000, spawnEveryMs: 8000, 
 // Touch controls (touch.js): the player stops once this close to the held pointer.
 COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
-window.COIN_DASH.twoPlayer = { key: 'TWO', color: 0xff9f43 };
+window.COIN_DASH.twoPlayer = { key: 'V', color: 0xff9f43 };
 
 // Walls (walls.js): static blocks that stop the player and bounce drones. x, y = centre.
 COIN_DASH.walls = { color: 0x8a94a6, blocks: [{ x: 200, y: 320, w: 80, h: 24 }, { x: 640, y: 200, w: 24, h: 100 }, { x: 400, y: 420, w: 100, h: 24 }] };
