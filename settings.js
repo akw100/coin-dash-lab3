@@ -59,6 +59,8 @@ window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000,
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
+// Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
+window.COIN_DASH.twoPlayer = { key: 'TWO', color: 0xff9f43 };
 
 // Logo (logo.js): gold coin with speed lines, drawn above the start title. Same shapes as logo.svg.
 window.COIN_DASH.logo = { y: 118, radius: 44, gold: 0xffc933, rim: 0xb8860b, edge: 0x3b2a05, shine: 0xfff3b0, lines: [-22, 0, 22],
