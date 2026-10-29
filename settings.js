@@ -17,3 +17,10 @@ window.COIN_DASH.sparkle = {
   burstSpeed: 220,
   pulseMs: 450        // gold glow/shimmer half-period
 };
+// Glitter mode (glitter.js), toggled with G.
+window.COIN_DASH.glitter = {
+  colors: [0xffffff, 0xff9ff3, 0x9ad8ff, 0xfff3b0, 0xb8ff9a],
+  trailEvery: 25,   // ms between trail specks behind the player
+  rainEvery: 30,    // ms between falling specks
+  droneEvery: 60    // ms between shimmer specks per drone
+};
