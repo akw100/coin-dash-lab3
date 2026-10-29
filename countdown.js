@@ -7,7 +7,9 @@ CoinDash.prototype.create = function () {
   const k = COIN_DASH.countdown;
   this.countdownLeft = 0;
   // ponytail: the smoke harness defines window.__scene; skip there so older tests that act right after boot still run.
-  if (!k.seconds || (window.__scene && !k.force)) return;
+  let chain = false; // auto-continue on = a chain of games: no countdown
+  try { chain = localStorage.getItem(COIN_DASH.autoContinue.storageKey) === '1'; } catch (e) { /* ignore */ }
+  if (chain || !k.seconds || (window.__scene && !k.force)) return;
   const roundMs = COIN_DASH.roundSeconds * 1000;
   this.countdownLeft = k.seconds;
   this.physics.pause();

@@ -14,3 +14,10 @@ export async function frozenThenGo(t) {
   t.assert(left > COIN_DASH_ROUND_MIN, `deadline did not start after GO (${left}s left)`);
 }
 const COIN_DASH_ROUND_MIN = 40;
+
+export async function chainSkips(t) {
+  await t.js("(localStorage.setItem(COIN_DASH.autoContinue.storageKey, '1'), COIN_DASH.countdown.force = true, __scene().scene.restart(), 1)");
+  await t.sleep(200);
+  t.assert(await t.js('__scene().countdownLeft') === 0, 'countdown shown while auto-continue is on');
+  await t.js("(localStorage.removeItem(COIN_DASH.autoContinue.storageKey), 1)");
+}
