@@ -8,8 +8,12 @@ export async function follow(t) {
   const y0 = await t.js('__scene().player.y');
   const tx = x0 + 150, ty = y0 - 80;
   await t.js(point(tx, ty, true));
-  await t.sleep(1000);
-  const s = await t.js('({ x: __scene().player.x, y: __scene().player.y })');
+  let s;
+  for (let i = 0; i < 20; i++) { // poll: a loaded machine runs frames slowly
+    await t.sleep(250);
+    s = await t.js('({ x: __scene().player.x, y: __scene().player.y })');
+    if (Math.hypot(s.x - tx, s.y - ty) < 12) break;
+  }
   t.assert(Math.hypot(s.x - tx, s.y - ty) < 12, `player did not reach the pointer (${s.x},${s.y} vs ${tx},${ty})`);
   await t.js(point(tx, ty, false));
   await t.shot('touch-follow');
