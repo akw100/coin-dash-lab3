@@ -85,6 +85,9 @@ COIN_DASH.coinHop = { lifetimeMs: 5000, blinkMs: 1000, ringColor: 0xffffff };
 // Time bonus (timebonus.js): white clock pickup, adds addSeconds to the deadline.
 COIN_DASH.timeBonus = { addSeconds: 5, spawnEveryMs: 10000, lifetimeMs: 8000 };
 
+// Drone warning (dronewarning.js): drones closer than distance px get a white outline and the screen border glows red.
+COIN_DASH.droneWarning = { distance: 90 };
+
 // Chaser drone (chaser.js): a slower drone that steers toward the player.
 COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
 
