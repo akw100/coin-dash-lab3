@@ -148,3 +148,8 @@ COIN_DASH.avatar = { storageKey: 'coinDashAvatar', randomKey: 'C', auraEveryMs: 
     hat: { none: 'None', crown: '👑 Crown', party: '🎉 Party', propeller: '🚁 Propeller', halo: '😇 Halo', horns: '😈 Horns', wizard: '🧙 Wizard' },
     aura: { none: 'None', fire: '🔥 Fire', sparkles: '✨ Sparkles', bubbles: '🫧 Bubbles', hearts: '💖 Hearts' }
   } };
+// Board-game makeover (boardgame.js): printed board, playing-card HUD, token coin, box-lid title. Overrides COIN_DASH.ui colours.
+COIN_DASH.board = { ink: 0x1a1446, square: 40, track: 12, font: '"Arial Rounded MT Bold", ui-rounded, "SF Pro Rounded", Nunito, "Trebuchet MS", system-ui, sans-serif',
+  dark: { base: '#2b1b66', check: '#34217a', emblem: 'rgba(255,255,255,0.07)' }, light: { base: '#bfe6ff', check: '#aedcff', emblem: 'rgba(26,20,70,0.08)' },
+  trackColors: ['#ff4b3e', '#ffc928', '#1fb86b', '#39b5ff'], gold: 0xffc928, goldRim: 0xd98e00, burst: 0xff4b3e, pips: { coins: 0xff4b3e, time: 0x39b5ff },
+  confetti: 40 };
