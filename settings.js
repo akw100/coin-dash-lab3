@@ -61,3 +61,5 @@ window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#f
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
 // Player trail (features/playertrail.js): ghost squares left behind while moving.
 COIN_DASH.trail = { everyMs: 40, fadeMs: 300, alpha: 0.5 };
+// Countdown (countdown.js): "3, 2, 1, GO!" before each round; seconds 0 turns it off.
+COIN_DASH.countdown = { seconds: 3, goMs: 500, color: '#ffd84d', force: false };
