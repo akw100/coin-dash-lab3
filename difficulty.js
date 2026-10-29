@@ -13,7 +13,7 @@ CoinDash.prototype.create = function () {
   COIN_DASH.droneCount = d.presets[this.difficulty].droneCount;
   COIN_DASH.droneSpeed = d.presets[this.difficulty].droneSpeed;
   createWithoutDifficulty.call(this);
-  this.add.text(COIN_DASH.width - 12, 12, `Difficulty: ${this.difficulty} (1/2/3)`, { font: '14px monospace', color: '#8fa3bf' })
+  this.add.text(COIN_DASH.width - 12, 46, `Difficulty: ${this.difficulty} (1/2/3)`, { font: '14px monospace', color: '#8fa3bf' })
     .setOrigin(1, 0).setDepth(50);
   this.input.keyboard.on('keydown', e => {
     const name = Object.keys(d.presets).find(n => 'Digit' + d.presets[n].key === e.code || d.presets[n].key === e.key);

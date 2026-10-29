@@ -16,3 +16,18 @@ export async function combo(t) {
   await t.shot('combo');
   return `score ${s0} → ${s1} → ${s2}`;
 }
+
+// After R the old round's label is destroyed; its listener must be gone too, or the next combo throws inside Phaser.
+export async function comboAfterRestart(t) {
+  await t.press('KeyR');
+  await t.sleep(300);
+  await t.js(park);
+  const s0 = await t.js('__scene().score');
+  await t.js(touch('s.coin'));
+  await t.sleep(200);
+  await t.js(touch('s.coin'));
+  await t.sleep(200);
+  const s2 = await t.js('__scene().score');
+  t.assert(s2 - s0 === 3, `two quick coins after R were worth ${s2 - s0}, expected 3`);
+  return `score ${s0} → ${s2}`;
+}

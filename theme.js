@@ -22,7 +22,7 @@
     const scene = game.scene.getScene('CoinDash');
     const setup = () => {
       apply(scene);
-      scene.input.keyboard.on('keydown-T', () => {
+      scene.input.keyboard.on('keydown-Y', () => {
         neon = !neon;
         try { localStorage.setItem(cfg.storageKey, neon ? '1' : '0'); } catch (e) { /* ignore */ }
         apply(scene);

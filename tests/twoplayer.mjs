@@ -2,9 +2,9 @@
 const park = '__scene().drones.getChildren().forEach((d, i) => d.body.reset(30 + i * 30, 480))';
 
 export async function twoplayer(t) {
-  await t.press('Digit2');
+  await t.press('KeyV');
   await t.sleep(300);
-  t.assert(await t.js('!!__scene().player2'), 'Digit2 did not start two-player mode');
+  t.assert(await t.js('!!__scene().player2'), 'KeyV did not start two-player mode');
   await t.js(park);
   const pos = () => t.js('({ a: __scene().player.x, b: __scene().player2.x })');
   const p0 = await pos();
