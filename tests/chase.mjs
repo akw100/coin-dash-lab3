@@ -10,7 +10,7 @@ const droneX = '__scene().drones.getChildren()[0].x';
 export async function chase(t) {
   await t.js(park);
   t.assert(await t.js('__scene().chase && __scene().chase.active') === true, 'chase.js did not mark the scene (scene.chase.active)');
-  await t.js('{ const s = __scene(), d = s.drones.getChildren()[0]; d.body.reset(s.player.x + 200, s.player.y); d.body.setVelocity(0, -COIN_DASH.droneSpeed); }');
+  await t.js('{ const s = __scene(), d = s.drones.getChildren()[0]; d.body.reset(s.player.x + 200, s.player.y); d.body.setVelocity(0, -COIN_DASH.droneSpeed); 0 }'); // ends in 0: a Body cannot be serialized back
   const x0 = await t.js(droneX);
   await t.sleep(1000);
   const x1 = await t.js(droneX);
