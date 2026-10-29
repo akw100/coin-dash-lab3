@@ -148,3 +148,6 @@ COIN_DASH.avatar = { storageKey: 'coinDashAvatar', randomKey: 'C', auraEveryMs: 
     hat: { none: 'None', crown: '👑 Crown', party: '🎉 Party', propeller: '🚁 Propeller', halo: '😇 Halo', horns: '😈 Horns', wizard: '🧙 Wizard' },
     aura: { none: 'None', fire: '🔥 Fire', sparkles: '✨ Sparkles', bubbles: '🫧 Bubbles', hearts: '💖 Hearts' }
   } };
+
+// Fresh restart (freshrestart.js): reload the page on every new round so stale feature listeners never pile up.
+COIN_DASH.freshRestart = { enabled: true };
