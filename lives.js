@@ -8,11 +8,13 @@ CoinDash.prototype.create = function () {
   this.lives = l.count;
   this.livesUntil = 0;
   const hearts = this.add.text(COIN_DASH.width - 18, 12, '', { font: '18px monospace', color: l.color }).setOrigin(1, 0).setDepth(50);
-  this.events.on('postupdate', () => {
+  const tick = () => {
     const t = this.time.now;
     hearts.setText('♥'.repeat(Math.max(0, this.lives)));
     this.player.setAlpha(t < this.livesUntil && Math.floor(t / l.blinkMs) % 2 ? 0.25 : 1);
-  });
+  };
+  this.events.on('postupdate', tick); // the scene's emitter outlives R, so unhook the destroyed hearts
+  this.events.once('shutdown', () => this.events.off('postupdate', tick));
 };
 CoinDash.prototype.finish = function (reason) {
   if (reason === 'A drone caught you!' && !this.finished) {
