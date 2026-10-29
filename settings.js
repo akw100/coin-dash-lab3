@@ -8,6 +8,8 @@ window.COIN_DASH = {
   droneCount: 3,
   highScoreKey: 'coinDash.best',
   timerBar: { y: 40, height: 6, warnSeconds: 10, colorStart: 0x4cd964, colorEnd: 0xff3b30 },
+  hitFx: { shakeMs: 220, shakeIntensity: 0.012, flashMs: 160, flashColor: [255, 59, 48] },
+  pauseKey: 'KeyP',
   teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
   doublePoints: { multiplier: 2, durationMs: 8000, spawnEveryMs: 10000, lifetimeMs: 7000, color: 0xb388ff },
   magnet: { radius: 160, pullSpeed: 220, durationMs: 8000, spawnEveryMs: 12000, lifetimeMs: 7000, color: 0xe63946 },
@@ -34,6 +36,20 @@ window.COIN_DASH.glitter = {
 // Light mode (L toggles). Sprites are darkened so they stay visible on the light background.
 COIN_DASH.lightColors = { background: 0xf4f1e8, grid: 0xc9cfd8, hud: '#1b2433',
   player: 0x138a72, coin: 0xd99a00, drone: 0xd7263d, page: '#e9e5da', pageText: '#1b2433' };
+
+// UI (ui.js): HUD panels, end screen, shadows, vignette. `dark`/`light` swap with L (scene.lightMode).
+COIN_DASH.ui = {
+  font: 'ui-rounded, "SF Pro Rounded", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif',
+  panel: { x: 12, y: 4, w: 128, h: 36, radius: 10 },
+  shadow: { dx: 3, dy: 5, alpha: 0.3 },
+  titleMs: 2600,     // start banner stays this long, then fades (gameplay is never blocked)
+  // timer colour from time left: normal, then amber, then red with a pulse (computed every frame from deadline)
+  timer: { amberSeconds: 10, redSeconds: 5, pulseMs: 500,
+    dark: { amber: '#ffb347', red: '#ff657a' }, light: { amber: '#b86e00', red: '#d7263d' } },
+  dark:  { panel: 0x0a1120, panelAlpha: 0.78, stroke: 0x34445e, text: '#e5edf7', label: '#8fa3bf', outline: 0x0a1120, vignette: 0.55 },
+  light: { panel: 0xffffff, panelAlpha: 0.85, stroke: 0xc9cfd8, text: '#1b2433', label: '#5b6778', outline: 0x1b2433, vignette: 0.12 }
+};
+
 // Shield pickup (shield.js): grab it to absorb the next drone hit.
 window.COIN_DASH.shield = { spawnEveryMs: 12000, lifetimeMs: 7000, graceMs: 700, color: 0x4dd8ff, glow: 0xbff4ff };
 // Clock pickup (clock.js): adds addSeconds to the round when grabbed.
