@@ -7,6 +7,7 @@ window.COIN_DASH = {
   droneSpeed: 105,
   droneCount: 3,
   highScoreKey: 'coinDash.best',
+  hitFx: { shakeMs: 220, shakeIntensity: 0.012, flashMs: 160, flashColor: [255, 59, 48] },
   teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
   doublePoints: { multiplier: 2, durationMs: 8000, spawnEveryMs: 10000, lifetimeMs: 7000, color: 0xb388ff },
   magnet: { radius: 160, pullSpeed: 220, durationMs: 8000, spawnEveryMs: 12000, lifetimeMs: 7000, color: 0xe63946 },
