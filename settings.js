@@ -68,6 +68,11 @@ window.COIN_DASH.logo = { y: 118, radius: 44, gold: 0xffc933, rim: 0xb8860b, edg
 
 // Coin hop (coinhop.js): an uncollected coin jumps to a new place after lifetimeMs, blinking for the last blinkMs.
 COIN_DASH.coinHop = { lifetimeMs: 5000, blinkMs: 1000, ringColor: 0xffffff };
+
+
+// Time bonus (timebonus.js): white clock pickup, adds addSeconds to the deadline.
+COIN_DASH.timeBonus = { addSeconds: 5, spawnEveryMs: 10000, lifetimeMs: 8000 };
+
 // Chaser drone (chaser.js): a slower drone that steers toward the player.
 COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
 
