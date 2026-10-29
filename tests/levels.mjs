@@ -10,8 +10,8 @@ export async function levels(t) {
     await t.sleep(150);
   }
   await t.js(park);
-  const s = await t.js('({ level: __scene().level, n: __scene().drones.getChildren().length, score: __scene().score })');
-  t.assert(s.level === 2, `level is ${s.level} after ${s.score} coins, expected 2`);
+  const s = await t.js('({ level: __scene().level, n: __scene().drones.getChildren().length, coins: __scene().coinsTaken })');
+  t.assert(s.level === 2, `level is ${s.level} after ${s.coins} coins, expected 2`);
   t.assert(s.n === n0 + 1, `drones ${n0} → ${s.n}, expected +1`);
   await t.shot('levels');
   return `level ${s.level}, drones ${n0} → ${s.n}`;

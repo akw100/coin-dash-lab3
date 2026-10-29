@@ -32,7 +32,10 @@ const updateWithoutBoost = CoinDash.prototype.update;
 CoinDash.prototype.update = function () {
   updateWithoutBoost.call(this);
   if (this.finished || !this.player) return;
+  const was = this.boosted;
   this.boosted = this.time.now < this.boostUntil;
   if (this.boosted) this.player.body.velocity.scale(COIN_DASH.speedBoost.multiplier);
-  this.player.setFillStyle(this.boosted ? COIN_DASH.speedBoost.color : COIN_DASH.colors.player);
+  // Only recolour on change, so other colour features (neon theme) keep their colour.
+  if (this.boosted && !was) { this.colorBeforeBoost = this.player.fillColor; this.player.setFillStyle(COIN_DASH.speedBoost.color); }
+  if (!this.boosted && was) this.player.setFillStyle(this.colorBeforeBoost);
 };

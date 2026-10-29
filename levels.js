@@ -1,15 +1,22 @@
 /* global COIN_DASH, CoinDash, Phaser */
 // Levels: every coinsPerLevel coins -> banner, +1 drone (away from the player), all drones 10% faster.
+// Count coins picked up, not score: combo, bonus coin and double points all inflate the score.
+const placeCoinWithoutLevels = CoinDash.prototype.placeCoin;
+CoinDash.prototype.placeCoin = function () {
+  if (this.coin && this.player && Phaser.Math.Distance.Between(this.coin.x, this.coin.y, this.player.x, this.player.y) < 30) this.coinsTaken = (this.coinsTaken ?? 0) + 1;
+  return placeCoinWithoutLevels.apply(this, arguments);
+};
 const createWithoutLevels = CoinDash.prototype.create;
 CoinDash.prototype.create = function () {
   createWithoutLevels.call(this);
   const L = COIN_DASH.levels, c = COIN_DASH;
   this.level = 1;
+  this.coinsTaken = 0;
   const font = { font: 'bold 14px monospace', color: '#ffffff' };
   const hud = this.levelHud = this.add.text(c.width / 2, c.height - 8, 'Level 1', font).setOrigin(0.5, 1).setDepth(50);
   this.events.on('update', () => {
     if (this.finished) return;
-    if (this.score >= this.level * L.coinsPerLevel) {
+    if (this.coinsTaken >= this.level * L.coinsPerLevel) {
       this.level++;
       hud.setText(`Level ${this.level}`);
       this.drones.getChildren().forEach(d => d.body.velocity.scale(L.speedUp));
