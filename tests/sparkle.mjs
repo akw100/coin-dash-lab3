@@ -26,3 +26,25 @@ export async function sparkleRestart(t) {
   await t.sleep(300);
   t.assert(await t.js('__scene().sparkle.twinkle.follow === __scene().coin'), 'sparkle not re-attached after restart');
 }
+
+export async function sparkleOnce(t) {
+  const n = await t.js(`__scene().children.list.filter(o => o.type === 'ParticleEmitter' && o.follow === __scene().coin).length`);
+  t.assert(n === 1, `${n} twinkle emitters follow the coin (expected 1)`);
+}
+
+export async function sparkleLight(t) {
+  await t.js(park);
+  await t.press('KeyL');
+  await t.js('{ const s = __scene(); s.coin.setPosition(s.player.x, s.player.y); s.coin.body.reset(s.player.x, s.player.y); }');
+  await t.sleep(120);
+  const r = await t.js(`(() => { const s = __scene(), k = s.sparkle, light = COIN_DASH.sparkle.lightColors;
+    const tints = k.burst.alive.map(p => p.tint);
+    return { light: s.lightMode, glow: k.glow.fillColor === s.coin.fillColor, blend: k.glow.blendMode,
+      n: tints.length, ok: tints.every(c => light.includes(c)) }; })()`);
+  t.assert(r.light, 'L did not turn on light mode');
+  t.assert(r.glow, 'glow does not match the light-mode coin colour');
+  t.assert(r.blend === 0, `glow still uses ADD blending in light mode (${r.blend})`);
+  t.assert(r.n > 0 && r.ok, `burst stars do not use the light-mode colours (${JSON.stringify(r)})`);
+  await t.shot('sparkle-light');
+  return `burst ${r.n} in light colours`;
+}

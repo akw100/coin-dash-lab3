@@ -12,6 +12,7 @@ window.COIN_DASH = {
 // Sparkly coins (sparkle.js): twinkle = stars around the coin, burst = stars on pickup.
 window.COIN_DASH.sparkle = {
   colors: [0xffffff, 0xfff3b0, 0xffd166],
+  lightColors: [0xd99a00, 0xb86e00, 0xf2b705], // used while light mode (L) is on
   twinkleEvery: 90,   // ms between twinkle stars
   twinkleRadius: 18,
   burstCount: 24,
