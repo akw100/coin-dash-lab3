@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
+  <g stroke-linecap="round">
+    <path d="M30 40h50M10 60h70M30 80h50" stroke="#3b2a05" stroke-width="9"/>
+    <path d="M30 40h50M10 60h70M30 80h50" stroke="#ffc933" stroke-width="5"/>
+  </g>
+  <circle cx="124" cy="60" r="48" fill="#3b2a05"/>
+  <circle cx="124" cy="60" r="44" fill="#b8860b"/>
+  <circle cx="124" cy="60" r="37" fill="#ffc933"/>
+  <circle cx="124" cy="60" r="29" fill="none" stroke="#b8860b" stroke-width="3"/>
+  <rect x="120" y="46" width="8" height="28" fill="#fff3b0" opacity=".8"/>
+  <text x="200" y="68" font-family="Arial Black,Impact,sans-serif" font-size="46" font-weight="900" fill="#ffc933" stroke="#3b2a05" stroke-width="6" paint-order="stroke" text-anchor="start" textLength="190">COIN</text>
+  <text x="200" y="118" font-family="Arial Black,Impact,sans-serif" font-size="46" font-weight="900" fill="#ffc933" stroke="#3b2a05" stroke-width="6" paint-order="stroke" textLength="190">DASH</text>
+</svg>
