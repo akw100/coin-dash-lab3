@@ -7,6 +7,9 @@ window.COIN_DASH = {
   droneSpeed: 105,
   droneCount: 3,
   highScoreKey: 'coinDash.best',
+  timerBar: { y: 40, height: 6, warnSeconds: 10, colorStart: 0x4cd964, colorEnd: 0xff3b30 },
+  hitFx: { shakeMs: 220, shakeIntensity: 0.012, flashMs: 160, flashColor: [255, 59, 48] },
+  pauseKey: 'KeyP',
   teleport: { key: 'T', distance: 140, cooldownMs: 1500, flashColor: 0xffffff },
   doublePoints: { multiplier: 2, durationMs: 8000, spawnEveryMs: 10000, lifetimeMs: 7000, color: 0xb388ff },
   magnet: { radius: 160, pullSpeed: 220, durationMs: 8000, spawnEveryMs: 12000, lifetimeMs: 7000, color: 0xe63946 },
@@ -58,3 +61,5 @@ window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#f
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
 // Sounds (sounds.js): synthesised beeps, M mutes (remembered).
 window.COIN_DASH.sounds = { key: 'M', storageKey: 'coinDashMuted', volume: 0.08 };
+// Player trail (features/playertrail.js): ghost squares left behind while moving.
+COIN_DASH.trail = { everyMs: 40, fadeMs: 300, alpha: 0.5 };
