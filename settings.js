@@ -78,6 +78,9 @@ COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
 window.COIN_DASH.twoPlayer = { key: 'TWO', color: 0xff9f43 };
 
+// Walls (walls.js): static blocks that stop the player and bounce drones. x, y = centre.
+COIN_DASH.walls = { color: 0x8a94a6, blocks: [{ x: 200, y: 320, w: 80, h: 24 }, { x: 640, y: 200, w: 24, h: 100 }, { x: 400, y: 420, w: 100, h: 24 }] };
+
 // Logo (logo.js): gold coin with speed lines, drawn above the start title. Same shapes as logo.svg.
 window.COIN_DASH.logo = { y: 118, radius: 44, gold: 0xffc933, rim: 0xb8860b, edge: 0x3b2a05, shine: 0xfff3b0, lines: [-22, 0, 22],
   spinMin: 0.25, spinMs: 700, bob: 6, bobMs: 900, slide: 10, slideMs: 250 };
