@@ -70,3 +70,5 @@ COIN_DASH.difficulty = { storageKey: 'coinDashDifficulty', default: 'Normal',
   presets: { Easy: { key: '1', droneCount: 2, droneSpeed: 70 }, Normal: { key: '2', droneCount: 3, droneSpeed: 105 }, Hard: { key: '3', droneCount: 5, droneSpeed: 150 } } };
 // Drone eyes (droneseyes.js): two white eyes per drone that face the player and glow within alertDistance px.
 COIN_DASH.dronesEyes = { alertDistance: 120, radius: 3, look: 5, spread: 5, color: 0xffffff, dimAlpha: 0.5 };
+// Characters (characters.js): a bobbing, blinking hero over the player and wobbling, pulsing stars over the drones; the squares stay as hitboxes, drawn invisible.
+COIN_DASH.characters = { bobPx: 2, bobMs: 260, squash: 0.25, squashMs: 180, blinkEveryMs: 2000, blinkMs: 120, eye: 0xffffff, pupil: 0x0a1120, starPoints: 5, starInner: 6, starOuter: 15, wobbleDeg: 15, wobbleMs: 900, pulse: 0.12, pulseMs: 1000 };
