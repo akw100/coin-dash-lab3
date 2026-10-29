@@ -106,3 +106,5 @@ COIN_DASH.countdown = { seconds: 3, goMs: 500, color: '#ffd84d', force: false };
 // Difficulty (difficulty.js): keys 1/2/3 pick a preset and restart the round.
 COIN_DASH.difficulty = { storageKey: 'coinDashDifficulty', default: 'Normal',
   presets: { Easy: { key: '1', droneCount: 2, droneSpeed: 70 }, Normal: { key: '2', droneCount: 3, droneSpeed: 105 }, Hard: { key: '3', droneCount: 5, droneSpeed: 150 } } };
+// Near miss (nearmiss.js): popup when a drone passes within gap px of the player without touching.
+COIN_DASH.nearMiss = { gap: 18, text: 'Close call!', color: '#7cf7ff', popupMs: 700 };
