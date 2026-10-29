@@ -137,3 +137,14 @@ COIN_DASH.characters = { bobPx: 2, bobMs: 260, squash: 0.25, squashMs: 180, blin
 
 // Keepalive (keepalive.js): restart the frame loop after it has not advanced for stalledTicks checks of intervalMs.
 COIN_DASH.keepalive = { intervalMs: 400, stalledTicks: 2 };
+// Avatar wardrobe (avatar.js): panel under the game picks the look; randomKey rolls a random one. Saved under storageKey.
+COIN_DASH.avatar = { storageKey: 'coinDashAvatar', randomKey: 'C', auraEveryMs: 45, auraMs: 600,
+  default: { body: 'cube', color: 'theme', face: 'happy', hat: 'none', aura: 'none' },
+  colors: { mint: 0x71e8ce, pink: 0xff4fd8, lava: 0xff5a1f, ice: 0x9ad8ff, gold: 0xffc933, slime: 0x8cff3b },
+  options: {
+    body: { cube: '🟩 Cube', blob: '🫧 Blob', star: '⭐ Star', ghost: '👻 Ghost', ufo: '🛸 UFO', cat: '🐱 Cat' },
+    color: { theme: 'Theme', mint: 'Mint', pink: 'Hot pink', lava: 'Lava', ice: 'Ice', gold: 'Gold', slime: 'Slime', rainbow: '🌈 Rainbow', disco: '🪩 Disco' },
+    face: { happy: '🙂 Happy', shades: '😎 Shades', angry: '😠 Angry', derp: '🤪 Derp', cyclops: '👁️ Cyclops' },
+    hat: { none: 'None', crown: '👑 Crown', party: '🎉 Party', propeller: '🚁 Propeller', halo: '😇 Halo', horns: '😈 Horns', wizard: '🧙 Wizard' },
+    aura: { none: 'None', fire: '🔥 Fire', sparkles: '✨ Sparkles', bubbles: '🫧 Bubbles', hearts: '💖 Hearts' }
+  } };
