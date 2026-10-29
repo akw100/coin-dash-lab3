@@ -72,6 +72,8 @@ window.COIN_DASH.dash = { key: 'SPACE', multiplier: 3, durationMs: 150, cooldown
 
 // Sounds (sounds.js): synthesised beeps, M mutes (remembered).
 window.COIN_DASH.sounds = { key: 'M', storageKey: 'coinDashMuted', volume: 0.08 };
+// Help overlay (helpoverlay.js): key toggles a controls/rules panel and pauses the game.
+COIN_DASH.helpOverlay = { key: 'K', alpha: 0.85 };
 // Neon theme (theme.js): T toggles it; choice stored under storageKey.
 COIN_DASH.neon = { storageKey: 'coinDashNeon', background: 0x000000, grid: 0x3a0a3a, player: 0x39ff14, coin: 0x00ffff, drone: 0xff00ff };
 // Player trail (features/playertrail.js): ghost squares left behind while moving.
