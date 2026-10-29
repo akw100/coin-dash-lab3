@@ -71,6 +71,8 @@ COIN_DASH.combo = { windowMs: 2000, max: 3, color: '#ffd166' };
 
 // EMP bomb (emp.js): B freezes all drones for freezeMs, once per round.
 COIN_DASH.emp = { key: 'B', freezeMs: 3000, ringRadius: 260, ringMs: 500, color: 0x4dd8ff, frozenColor: 0x9aa3ad };
+// Lives (lives.js): drone hits cost a life; respawn at center, immune and blinking for invulnMs.
+window.COIN_DASH.lives = { count: 3, invulnMs: 1500, blinkMs: 100, color: '#ff657a' };
 // Touch controls (touch.js): the player stops once this close to the held pointer.
 COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
