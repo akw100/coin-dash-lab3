@@ -56,3 +56,5 @@ window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000,
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
+// Levels (levels.js): every coinsPerLevel coins the level rises, one more drone spawns, drones speed up.
+window.COIN_DASH.levels = { coinsPerLevel: 5, speedUp: 1.1, minSpawnDistance: 250, bannerMs: 1200 };
