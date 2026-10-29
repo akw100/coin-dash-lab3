@@ -63,16 +63,23 @@ window.COIN_DASH.sound = { volume: 0.25,
 window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#ffd166' };
 // Auto-continue (autocontinue.js): N toggles; after a round ends a countdown starts the next one.
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
-// EMP bomb (emp.js): B freezes all drones for freezeMs, once per round.
-COIN_DASH.emp = { key: 'B', freezeMs: 3000, ringRadius: 260, ringMs: 500, color: 0x4dd8ff, frozenColor: 0x9aa3ad };
+// Bonus coin (bonuscoin.js): big pulsing orange coin, worth `points`, gone after lifetimeMs.
+window.COIN_DASH.bonusCoin = { points: 5, spawnEveryMs: 15000, lifetimeMs: 5000, radius: 14, color: 0xff8c1a };
 // Combo (combo.js): coins within windowMs of the previous one raise the multiplier up to max.
 COIN_DASH.combo = { windowMs: 2000, max: 3, color: '#ffd166' };
 
 
-// Bonus coin (bonuscoin.js): big pulsing orange coin, worth `points`, gone after lifetimeMs.
-window.COIN_DASH.bonusCoin = { points: 5, spawnEveryMs: 15000, lifetimeMs: 5000, radius: 14, color: 0xff8c1a };
+// EMP bomb (emp.js): B freezes all drones for freezeMs, once per round.
+COIN_DASH.emp = { key: 'B', freezeMs: 3000, ringRadius: 260, ringMs: 500, color: 0x4dd8ff, frozenColor: 0x9aa3ad };
 // Lives (lives.js): drone hits cost a life; respawn at center, immune and blinking for invulnMs.
 window.COIN_DASH.lives = { count: 3, invulnMs: 1500, blinkMs: 100, color: '#ff657a' };
+
+// Screen shake (screenshake.js): camera shake + red flash when a drone catches the player.
+COIN_DASH.screenShake = { ms: 300, intensity: 0.02 };
+// Speed boost (speedboost.js): grab the cyan diamond to move faster for a while.
+COIN_DASH.speedBoost = { multiplier: 1.6, durationMs: 4000, spawnEveryMs: 8000, lifetimeMs: 7000, color: 0x00e5ff };
+
+
 // Touch controls (touch.js): the player stops once this close to the held pointer.
 COIN_DASH.touch = { stopDistance: 6 };
 // Two-player mode (twoplayer.js): 2 toggles; P2 uses the arrow keys.
@@ -91,6 +98,9 @@ COIN_DASH.coinHop = { lifetimeMs: 5000, blinkMs: 1000, ringColor: 0xffffff };
 
 // Time bonus (timebonus.js): white clock pickup, adds addSeconds to the deadline.
 COIN_DASH.timeBonus = { addSeconds: 5, spawnEveryMs: 10000, lifetimeMs: 8000 };
+
+// Drone warning (dronewarning.js): drones closer than distance px get a white outline and the screen border glows red.
+COIN_DASH.droneWarning = { distance: 90 };
 
 // Chaser drone (chaser.js): a slower drone that steers toward the player.
 COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
@@ -113,3 +123,8 @@ COIN_DASH.difficulty = { storageKey: 'coinDashDifficulty', default: 'Normal',
   presets: { Easy: { key: '1', droneCount: 2, droneSpeed: 70 }, Normal: { key: '2', droneCount: 3, droneSpeed: 105 }, Hard: { key: '3', droneCount: 5, droneSpeed: 150 } } };
 // Near miss (nearmiss.js): popup when a drone passes within gap px of the player without touching.
 COIN_DASH.nearMiss = { gap: 18, text: 'Close call!', color: '#7cf7ff', popupMs: 700 };
+// Levels (levels.js): every coinsPerLevel coins the level rises, one more drone spawns, drones speed up.
+window.COIN_DASH.levels = { coinsPerLevel: 5, speedUp: 1.1, minSpawnDistance: 250, bannerMs: 1200 };
+
+// Coin pickup particles (particles.js).
+COIN_DASH.particles = { count: 12, radius: 3, distance: 60, fadeMs: 400 };
