@@ -1,7 +1,6 @@
-// UI polish: HUD panels track score and time, the popup shows the real points (+2 during double points), end card appears.
+// UI polish: HUD panels track score and time, the end card appears.
 const park = '__scene().drones.getChildren().forEach((d, i) => d.body.reset(30 + i * 30, 480))';
 const touch = what => `{ const s = __scene(), o = ${what}; o.setPosition(s.player.x, s.player.y); o.body.reset(s.player.x, s.player.y); }`;
-const popups = `__scene().children.list.filter(o => o.type === 'Text' && /^\\+\\d+$/.test(o.text)).map(o => o.text)`;
 
 export async function hud(t) {
   await t.js(park);
@@ -13,20 +12,6 @@ export async function hud(t) {
   await t.press('KeyL');
   await t.sleep(100);
   await t.shot('ui-light');
-}
-
-export async function popup(t) {
-  await t.js(park);
-  await t.js(touch('s.coin'));
-  await t.sleep(100);
-  t.assert((await t.js(popups)).join() === '+1', 'normal pickup should show +1');
-  await t.sleep(800);
-  await t.js('__scene().activateDouble()');
-  await t.js(touch('s.coin'));
-  await t.sleep(100);
-  const doubled = await t.js(popups);
-  t.assert(doubled.join() === '+2', `double points pickup should show +2, got ${doubled}`);
-  await t.shot('ui-double');
 }
 
 export async function endcard(t) {

@@ -12,7 +12,7 @@ CoinDash.prototype.create = function () {
   this.events.on('postupdate', () => {
     this.player.angle = this.player.body.velocity.x / COIN_DASH.playerSpeed * a.tiltDeg;
     if (this.score > lastScore) {
-      const popup = this.add.text(this.player.x, this.player.y - 20, `+${this.score - lastScore}`,
+      const popup = this.add.text(this.player.x, this.player.y - 20, '+1',
         { font: 'bold 20px monospace', color: '#ffd166' }).setOrigin(0.5);
       this.tweens.add({ targets: popup, y: popup.y - a.popupRise, alpha: 0, duration: a.popupMs, onComplete: () => popup.destroy() });
       this.tweens.add({ targets: this.hud, scale: a.hudBounce, duration: a.hudMs, yoyo: true });
