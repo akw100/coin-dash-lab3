@@ -32,7 +32,9 @@ CoinDash.prototype.create = function () {
   };
   this.spawnMagnet = spawn;
   this.time.addEvent({ delay: m.spawnEveryMs, loop: true, callback: spawn });
-  this.events.on('postupdate', () => {
+  // The scene's event emitter survives restarts, but ring and label do not: detach this listener on shutdown,
+  // or the stale one from the previous round throws inside Phaser's step and the whole game freezes.
+  const onPostUpdate = () => {
     const left = Math.ceil((this.magnetUntil - this.time.now) / 1000);
     const on = !this.finished && left > 0;
     label.setText(on ? `Magnet ${left}s` : '');
@@ -44,5 +46,7 @@ CoinDash.prototype.create = function () {
     const x = c.x + (this.player.x - c.x) / d * step, y = c.y + (this.player.y - c.y) / d * step;
     c.setPosition(x, y);
     c.body.reset(x, y);
-  });
+  };
+  this.events.on('postupdate', onPostUpdate);
+  this.events.once('shutdown', () => this.events.off('postupdate', onPostUpdate));
 };
