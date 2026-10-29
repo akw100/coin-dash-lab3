@@ -22,3 +22,19 @@ export async function magnet(t) {
   await t.shot('magnet-active');
   return `coin distance ${Math.round(d0)} → ${Math.round(d1)}`;
 }
+
+// Regression: after a restart the magnet used to leave a stale listener behind, which threw on the next
+// activation and froze the whole game loop (no frames advanced). The loop must keep running.
+export async function survivesRestart(t) {
+  await t.js(park);
+  await t.press('KeyR');
+  await t.sleep(300);
+  await t.js(park);
+  await t.js('__scene().activateMagnet()');
+  const f0 = await t.js('coinDashGame.loop.frame');
+  await t.sleep(500);
+  const f1 = await t.js('coinDashGame.loop.frame');
+  t.assert(f1 > f0 + 5, `the game loop stalled after a restart with the magnet on (frames ${f0} → ${f1})`);
+  t.assert(await t.js('__scene().magnetUntil > __scene().time.now'), 'magnet did not turn on after the restart');
+  return `frames ${f0} → ${f1}`;
+}

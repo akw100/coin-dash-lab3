@@ -10,7 +10,8 @@ export async function glitter(t) {
   await t.press('KeyG');
   await t.sleep(600);
   s = await t.js(state);
-  t.assert(s.on && s.all && s.n >= 5, `G did not activate every emitter (${JSON.stringify(s)})`);
+  const expected = 2 + await t.js('__scene().drones.getChildren().length'); // trail + rain + one per drone (drone count follows the difficulty preset)
+  t.assert(s.on && s.all && s.n >= expected, `G did not activate every emitter (${JSON.stringify(s)}, expected ${expected})`);
   t.assert(s.alive > 0, 'no glitter particles alive');
   await t.shot('glitter-on');
   await t.press('KeyG');
