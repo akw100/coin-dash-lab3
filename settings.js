@@ -61,6 +61,8 @@ window.COIN_DASH.halfMode = { key: 'H', invulnMs: 1000, blinkMs: 100, color: '#f
 COIN_DASH.autoContinue = { key: 'N', seconds: 3, storageKey: 'coinDashAutoContinue' };
 // Chaser drone (chaser.js): a slower drone that steers toward the player.
 COIN_DASH.chaser = { speed: 60, startX: 740, startY: 460, color: 0xb388ff };
+// Neon theme (theme.js): T toggles it; choice stored under storageKey.
+COIN_DASH.neon = { storageKey: 'coinDashNeon', background: 0x000000, grid: 0x3a0a3a, player: 0x39ff14, coin: 0x00ffff, drone: 0xff00ff };
 // Player trail (features/playertrail.js): ghost squares left behind while moving.
 COIN_DASH.trail = { everyMs: 40, fadeMs: 300, alpha: 0.5 };
 // Countdown (countdown.js): "3, 2, 1, GO!" before each round; seconds 0 turns it off.
