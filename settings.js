@@ -51,3 +51,19 @@ COIN_DASH.ui = {
 window.COIN_DASH.shield = { spawnEveryMs: 12000, lifetimeMs: 7000, graceMs: 700, color: 0x4dd8ff, glow: 0xbff4ff };
 // Clock pickup (clock.js): adds addSeconds to the round when grabbed.
 window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
+
+// Keyboard shortcuts (shortcuts.js): the help overlay (? or /) lists these rows. A new feature with a key adds a row here.
+// `keys` entries are separated by " / "; no key may appear in two rows (tests/shortcuts.mjs checks it).
+COIN_DASH.shortcuts = [
+  { keys: 'Arrows / W A S D', action: 'Move' },
+  { keys: 'R', action: 'Restart the round' },
+  { keys: 'P / Space', action: 'Pause / resume' },
+  { keys: 'L', action: 'Light mode' },
+  { keys: 'T', action: 'Teleport' },
+  { keys: 'G', action: 'Glitter mode' },
+  { keys: 'B', action: 'Bot rival' },
+  { keys: 'H', action: 'Half-points mode (coming)' },
+  { keys: 'N', action: 'Auto-continue (coming)' },
+  { keys: '? / /', action: 'Show / hide this help' },
+  { keys: 'Esc', action: 'Close help' }
+];
