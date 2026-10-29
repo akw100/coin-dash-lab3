@@ -70,3 +70,5 @@ COIN_DASH.difficulty = { storageKey: 'coinDashDifficulty', default: 'Normal',
   presets: { Easy: { key: '1', droneCount: 2, droneSpeed: 70 }, Normal: { key: '2', droneCount: 3, droneSpeed: 105 }, Hard: { key: '3', droneCount: 5, droneSpeed: 150 } } };
 // Drone eyes (droneseyes.js): two white eyes per drone that face the player and glow within alertDistance px.
 COIN_DASH.dronesEyes = { alertDistance: 120, radius: 3, look: 5, spread: 5, color: 0xffffff, dimAlpha: 0.5 };
+// Chase (chase.js): drones within range px steer toward the player, blending weight steer per second. Keep range <= 320: tests park drones at (30..90, 480), ~386 px from the centred player.
+COIN_DASH.chase = { steer: 1.2, range: 320 };
