@@ -10,6 +10,7 @@ export async function levels(t) {
     t.assert(s.d === name && s.n === p.droneCount && Math.abs(s.v - p.droneSpeed) <= 2, `${name}: got ${JSON.stringify(s)}, want ${JSON.stringify(p)}`);
     await t.shot('difficulty-' + name.toLowerCase());
   }
+  await t.press('Digit2'); // leave Normal saved: the profile is shared, so Easy would leak into later checks
   // The preset is remembered in localStorage and the smoke profile is shared by every check in a run:
   // forget it so later checks (glitter counts one emitter per drone) start from the default drone count.
   await t.js('localStorage.removeItem(COIN_DASH.difficulty.storageKey)');
