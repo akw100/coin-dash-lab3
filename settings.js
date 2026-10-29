@@ -102,3 +102,5 @@ COIN_DASH.difficulty = { storageKey: 'coinDashDifficulty', default: 'Normal',
 COIN_DASH.dronesEyes = { alertDistance: 120, radius: 3, look: 5, spread: 5, color: 0xffffff, dimAlpha: 0.5 };
 // Chase (chase.js): drones within range px steer toward the player, blending weight steer per second. Keep range <= 320: tests park drones at (30..90, 480), ~386 px from the centred player.
 COIN_DASH.chase = { steer: 1.2, range: 320 };
+// Characters (characters.js): a bobbing, blinking hero over the player and wobbling, pulsing stars over the drones; the squares stay as hitboxes, drawn invisible.
+COIN_DASH.characters = { bobPx: 2, bobMs: 260, squash: 0.25, squashMs: 180, blinkEveryMs: 2000, blinkMs: 120, eye: 0xffffff, pupil: 0x0a1120, starPoints: 5, starInner: 6, starOuter: 15, wobbleDeg: 15, wobbleMs: 900, pulse: 0.12, pulseMs: 1000 };
