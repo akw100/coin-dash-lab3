@@ -45,4 +45,4 @@ The game draws its own shapes; there are no image or audio assets. The authored 
 MIT licence in LICENSE.txt. Phaser documentation:
 https://docs.phaser.io/phaser/getting-started/making-your-first-phaser-game
 
-Team: Yehuda Arbiv and PARTNER_NAME
+Team: Yehuda Arbiv and Itay Nissan
