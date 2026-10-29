@@ -31,3 +31,5 @@ window.COIN_DASH.glitter = {
 // Light mode (L toggles). Sprites are darkened so they stay visible on the light background.
 COIN_DASH.lightColors = { background: 0xf4f1e8, grid: 0xc9cfd8, hud: '#1b2433',
   player: 0x138a72, coin: 0xd99a00, drone: 0xd7263d, page: '#e9e5da', pageText: '#1b2433' };
+// Clock pickup (clock.js): adds addSeconds to the round when grabbed.
+window.COIN_DASH.clock = { addSeconds: 5, spawnEveryMs: 14000, lifetimeMs: 8000, color: 0x2ecc71 };
