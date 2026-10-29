@@ -15,6 +15,7 @@ export async function shield(t) {
   t.assert(await t.js('__scene().shielded') === false, 'the shield was not used up by the hit');
   await t.js(park);
   await t.sleep(900);
+  await t.js('__scene().lives = 1'); // lives.js: the last life is the one that ends the round
   await t.js(touch('__scene().drones.getChildren()[0]'));
   await t.sleep(200);
   t.assert(await t.js('__scene().finished') === true, 'the second drone hit did not end the round');

@@ -15,6 +15,7 @@ export async function chases(t) {
 
 export async function ends(t) {
   await t.js(park);
+  await t.js('__scene().lives = 1'); // lives.js: the last life is the one that ends the round
   await t.js('{ const s = __scene(); s.chaser.body.reset(s.player.x, s.player.y); }');
   await t.sleep(200);
   t.assert(await t.js('__scene().finished') === true, 'touching the chaser did not end the round');
