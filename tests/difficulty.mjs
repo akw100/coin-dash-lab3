@@ -1,5 +1,5 @@
 // Difficulty: Digit3 = Hard, Digit1 = Easy; drone count and speed follow the presets.
-const state = '({ n: __scene().drones.getChildren().length, v: Math.round(Math.hypot(...[__scene().drones.getChildren()[0].body.velocity.x, __scene().drones.getChildren()[0].body.velocity.y])), d: __scene().difficulty })';
+const state = '({ n: __scene().drones.getChildren().filter(d => d !== __scene().chaser).length, v: Math.round(Math.hypot(...[__scene().drones.getChildren()[0].body.velocity.x, __scene().drones.getChildren()[0].body.velocity.y])), d: __scene().difficulty })';
 
 export async function levels(t) {
   for (const [code, name] of [['Digit3', 'Hard'], ['Digit1', 'Easy']]) {
